@@ -1,0 +1,44 @@
+<h1>Welcome to Jidlo</h1>
+<h2>Group dinning decisions made easy</h2>
+
+<h3>How it works</h3>
+
+<h3>The survey questions</h3>
+
+<h1>Let's get started</h1>
+
+<%= form_for(:new_survey, url: new_survey_path) do |q| %>
+
+  <h4>How many people are in your party?</h4> 
+  <%= q.select :people, 
+  options_for_select(%w[1 2 3 4 5 6 7 8 9 10]) %></br></br>
+
+  <%= q.text_field :name, :placeholder => "Your name" %></br></br>
+
+  <%= q.text_field :location, :placeholder => "Location" %></br></br>
+
+  <%= q.submit "Generate survey link" %>
+
+<% end %></br></br>
+
+<div class='demo-area'>
+  <button class='my_clip_button' data-clipboard-target='fe_text' id='d_clip_button' title='Click me to copy to clipboard.'>
+    <b>Copy link to Clipboard...</b>
+  </button></br></br>
+  <textarea cols='50' id='fe_text' rows='3'> 	
+  <% if @link != nil %>
+    <%= @link %>
+  <% end %>
+  </textarea>
+</div>
+
+<script>
+  $(document).ready(function() {
+    var clip = new ZeroClipboard($("#d_clip_button"))
+  });
+
+  $("#clear-test").on("click", function(){
+    $("#fe_text").val("Copy me!");
+    $("#testarea").val("");
+  });
+</script>
