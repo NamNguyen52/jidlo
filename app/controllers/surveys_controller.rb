@@ -33,6 +33,9 @@ class SurveysController < ApplicationController
 		q2 = params[:response][:question2]
 		q3 = params[:response][:question3]
 		uniqueid = params[:uniqueid]
+		
 		do_crunch(q1,q2,q3,uniqueid)
+
+		render 'show'
 	end
 end
