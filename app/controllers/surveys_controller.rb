@@ -27,4 +27,12 @@ class SurveysController < ApplicationController
 
 		render 'index'
 	end
+
+	def prep_crunch
+		q1 = params[:response][:question1]
+		q2 = params[:response][:question2]
+		q3 = params[:response][:question3]
+		uniqueid = params[:uniqueid]
+		do_crunch(q1,q2,q3,uniqueid)
+	end
 end
