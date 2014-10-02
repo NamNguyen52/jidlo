@@ -1,0 +1,27 @@
+<h1>Lets get some damn lunch!</h1>
+
+<h3>Survey sent by <%= @info.name %></h3>
+
+<h3>Will search in the <%= @info.location %> area</h3>
+
+<%= form_for(:response, url: crunch_path) do |question| %>
+
+  <%= question.label :question1 %>
+  <%= question.select :question1, 
+  options_for_select(%w[option1 option2 option3 option4]) %></br></br>
+
+  <%= question.label :question2 %>
+  <%= question.select :question2, 
+  options_for_select(%w[option1 option2 option3 option4]) %></br></br>
+
+  <%= question.label :question3 %>
+  <%= question.select :question3, 
+  options_for_select(%w[option1 option2 option3 option4]) %></br></br>
+
+  <%= question.submit "submit responses!" %>
+	
+<% end %>
+
+<% if @info != nil %>
+  <%= @info %>
+<% end %>
