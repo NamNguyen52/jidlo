@@ -4,6 +4,8 @@ group :development, :test do
   gem 'rspec-rails'
 end
 
+gem 'foursquare2'
+
 gem 'zeroclipboard-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

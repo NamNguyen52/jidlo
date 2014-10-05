@@ -1,7 +1,6 @@
 class Survey < ActiveRecord::Base
-  
-  def do_crunch(q1,q2,q3,uniqueid) 
-  	
+
+  def self.sync(q1, q2, q3, id, people)
   	
   end
 
