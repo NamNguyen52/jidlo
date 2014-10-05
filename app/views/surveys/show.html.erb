@@ -1,31 +1,44 @@
-<h1>Lets get some damn lunch!</h1>
 
+
+<h1>Lets get some damn lunch!</h1>
+<% if @info != nil %>
 <h3>Survey sent by <%= @info.name %></h3>
 
 <h3>Will search in the <%= @info.location %> area</h3>
+<% end %>
 
-<%= form_for(:response, url: crunch_path) do |question| %>
+<% if @survey1 %>
+<%= form_for(:response, url: crunch_path, method: :post) do |question| %>
 
   <%= question.label :question1 %>
   <%= question.select :question1, 
-  options_for_select(%w[option1 option2 option3 option4]) %></br></br>
+  options_for_select(%w[Thai Chinese Mexican Sushi Burgers Korean Indian FoodTruck FastFood]) %></br></br>
 
   <%= question.label :question2 %>
   <%= question.select :question2, 
-  options_for_select(%w[option1 option2 option3 option4]) %></br></br>
+  options_for_select(%w[walking short-drive long-drive]) %></br></br>
 
   <%= question.label :question3 %>
   <%= question.select :question3, 
-  options_for_select(%w[option1 option2 option3 option4]) %></br></br>
+  options_for_select(%w[$ $$ $$$ $$$$]) %></br></br>
 
-  <%= question.submit "submit responses!" %>
-	
+  <%= question.submit "submit responses!", :id => "survey2" %>
+
+<% end %>
 <% end %>
 
-<% if @info != nil %>
-  <%= @info %>
+<% if @survey2 %>
+  <h1>Survey 2</h1>
+
+  <%= form_for(:response2, url: crunch_path) do |question| %>
+
+  <%= @restaurant1 %></br>
+  <%= @restaurant2 %></br>
+  <%= @restaurant3 %></br>
+ 
+  <%= question.submit "submit responses!", :id => "survey2" %>
+
+<% end %>
 <% end %>
 
-<% if @got_people != nil %>
-  <%= @got_people %>
-<% end %>
+

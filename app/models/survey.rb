@@ -1,8 +1,7 @@
 class Survey < ActiveRecord::Base
-  
-  def do_crunch(q1,q2,q3,uniqueid) 
-    check = Survey.find(uniqueid: uniqueid)
-    @got_people = check.people
+
+  def self.sync(q1, q2, q3, id, people)
+  	
   end
 
 end
