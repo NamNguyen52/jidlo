@@ -1,3 +1,6 @@
+require 'rubygems'
+require 'twilio-ruby'
+
 class SurveysController < ApplicationController
 
 	def index
@@ -13,11 +16,15 @@ class SurveysController < ApplicationController
 		@people = params[:new_survey][:people]
 		@name = params[:new_survey][:name]
 		@location = params[:new_survey][:location]
+		@latitude = params[:new_survey][:latitude]
+		@longitude = params[:new_survey][:longitude]
 		@uniqueid = ('a'..'z').to_a.shuffle[0,8].join
 		@survey = Survey.new
 		@survey.name = @name
 		@survey.people = @people
 		@survey.location = @location
+		@survey.latitude = @latitude
+		@survey.longitude = @longitude
 		@survey.uniqueid = @uniqueid
 		@survey.q1 = []
 		@survey.q2 = []
@@ -26,6 +33,15 @@ class SurveysController < ApplicationController
 		@survey.save
 
 		@link = "localhost:3000/survey_link/#{@uniqueid}"
+
+		account_sid = 'ACc81c5abf7e87ff004ebaa870388e0620' 
+		auth_token = '473558defcc16dc759b89bb55c664be6' 
+		@client = Twilio::REST::Client.new account_sid, auth_token 
+		@client.account.messages.create({
+			:from => '+14244887319', 
+			:to => '3104067401', 
+			:body => @link,  
+		})
 
 		render 'index'
 	end

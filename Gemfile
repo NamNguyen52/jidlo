@@ -6,6 +6,10 @@ end
 
 gem 'foursquare2'
 
+gem 'geocoder'
+
+gem 'twilio-ruby'
+
 gem 'zeroclipboard-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
