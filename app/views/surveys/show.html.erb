@@ -6,6 +6,8 @@
 
 <%= form_for(:response, url: crunch_path) do |question| %>
 
+<%#= form_for(@info, url: crunch_path) do |question| %>
+
   <%= question.label :question1 %>
   <%= question.select :question1, 
   options_for_select(%w[option1 option2 option3 option4]) %></br></br>
@@ -20,8 +22,4 @@
 
   <%= question.submit "submit responses!" %>
 	
-<% end %>
-
-<% if @info != nil %>
-  <%= @info %>
 <% end %>

@@ -1,25 +1,5 @@
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvQPK_z7tyIdBpGxui6Jps_zZsPudqzJ4"></script>
-
-<script>
-navigator.geolocation.getCurrentPosition(latitude);
-navigator.geolocation.getCurrentPosition(longitude);
-function latitude(pos) {
-  var curr = pos.coords;
-  document.getElementById('getLat').value = 
-  curr.latitude
-};
-function longitude(pos) {
-  var curr = pos.coords;
-  document.getElementById('getLng').value = 
-  curr.longitude
-};  
-google.maps.event.addDomListener(window, 'load', initialize, latitude(pos), longitude(pos));
-</script>
-
-
-
 <h1>Welcome to Jidlo</h1>
-<h2>Group dining decisions made easy</h2>
+<h2>Group dinning decisions made easy</h2>
 
 <h3>How it works</h3>
 
@@ -36,10 +16,6 @@ google.maps.event.addDomListener(window, 'load', initialize, latitude(pos), long
   <%= q.text_field :name, :placeholder => "Your name" %></br></br>
 
   <%= q.text_field :location, :placeholder => "Location" %></br></br>
-
-  <%= q.text_field :latitude, id: "getLat", :placeholder => "Latitude" %><br/><br/>
-
-  <%= q.text_field :longitude, id: "getLng", :placeholder => "Longitude"%><br/><br/>  
 
   <%= q.submit "Generate survey link" %>
 
