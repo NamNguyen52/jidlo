@@ -1,3 +1,6 @@
+require 'rubygems'
+require 'twilio-ruby'
+
 class SurveysController < ApplicationController
 
 	def index
@@ -13,11 +16,15 @@ class SurveysController < ApplicationController
 		@people = params[:new_survey][:people]
 		@name = params[:new_survey][:name]
 		@location = params[:new_survey][:location]
+		@latitude = params[:new_survey][:latitude]
+		@longitude = params[:new_survey][:longitude]
 		@uniqueid = ('a'..'z').to_a.shuffle[0,8].join
 		@survey = Survey.new
 		@survey.name = @name
 		@survey.people = @people
 		@survey.location = @location
+		@survey.latitude = @latitude
+		@survey.longitude = @longitude
 		@survey.uniqueid = @uniqueid
 		@survey.q1 = []
 		@survey.q2 = []
@@ -26,6 +33,15 @@ class SurveysController < ApplicationController
 		@survey.save
 
 		@link = "localhost:3000/survey_link/#{@uniqueid}"
+
+		account_sid = 'ACc81c5abf7e87ff004ebaa870388e0620' 
+		auth_token = '473558defcc16dc759b89bb55c664be6' 
+		@client = Twilio::REST::Client.new account_sid, auth_token 
+		@client.account.messages.create({
+			:from => '+14244887319', 
+			:to => '3104067401', 
+			:body => @link,  
+		})
 
 		render 'index'
 	end
@@ -48,6 +64,7 @@ class SurveysController < ApplicationController
 			@survey2 = true
 			@survey1 = false
 			check(recordid)
+			render 'show'
 		else
 			render 'show'
 		end
@@ -57,8 +74,6 @@ class SurveysController < ApplicationController
 		curr_record = Survey.find(id)
 		if curr_record.q1.length == curr_record.people
 			mode(curr_record)
-		else
-			render 'show'
 		end
 	end
 
@@ -75,107 +90,63 @@ class SurveysController < ApplicationController
 
 		location = curr_record.location
 
-		case_mode1(mode1,mode2, mode3, location)
+		cases(mode1, mode2, mode3, location)
 	end
 
-	def case_mode1(mode1, mode2, mode3, location)
-		
-		api_params_arr = []
-
+	def cases(mode1, mode2, mode3, location)
 		case mode1
-
-		when "Thai"
-			categoryId = "4bf58dd8d48988d149941735"
-			api_params_arr << categoryId 
-		when "Chinese"
-			categoryId = "4bf58dd8d48988d145941735"
-			api_params_arr << categoryId 
-		when "Mexican"
-			categoryId = "4bf58dd8d48988d1c1941735"
-			api_params_arr << categoryId 
-		when "Sushi"
-			categoryId = "4bf58dd8d48988d1d2941735"
-			api_params_arr << categoryId 
-		when "Burger"
-			categoryId = "4bf58dd8d48988d16c941735"
-			api_params_arr << categoryId 
-		when "Korean"
-			categoryId = "4bf58dd8d48988d113941735"
-			api_params_arr << categoryId 
-		when "Indian"
-			categoryId = "4bf58dd8d48988d10f941735"
-			api_params_arr << categoryId 
-		when "FoodTruck"
-			categoryId = "4bf58dd8d48988d1cb941735"
-			api_params_arr << categoryId 
-		when "FastFood"
-			categoryId = "4bf58dd8d48988d16e941735"
-			api_params_arr << categoryId 
-		end
-
-		if api_params_arr.length == 1
-			case_mode2(mode2, mode3, location, api_params_arr)
-		else
-			wrong.com
-		end
-	end
-
-	def case_mode2(mode2, mode3, location, api_params_arr)
 		
-		api_params_arr
+		when "Thai"
+			categoryId = "4bf58dd8d48988d149941735"  #Thai
+		when "Chinese"
+			categoryId = "4bf58dd8d48988d145941735"  #Chinese
+		when "Mexican"
+			categoryId = "4bf58dd8d48988d1c1941735"  #Mexican
+		when "Sushi"
+			categoryId = "4bf58dd8d48988d1d2941735"  #Sushi
+		when "Burger"
+			categoryId = "4bf58dd8d48988d16c941735"  #Burger Joint
+		when "Korean"
+			categoryId = "4bf58dd8d48988d113941735"  #Korean
+		when "Indian"
+			categoryId = "4bf58dd8d48988d10f941735"  #Indian
+		when "FoodTruck"
+			categoryId = "4bf58dd8d48988d1cb941735"  #Food Truck
+		when "FastFood"
+			categoryId = "4bf58dd8d48988d16e941735"  #Fast Food 
+		end
 
 		case mode2
 
 		when "walking"
-  			radius = 2000
-  			api_params_arr << radius
+  			radius = 1600
 		when "short-drive"
-			radius = 8000
-			api_params_arr << radius
+			radius = 4800
 		when "long-drive"
-			radius = 20000
-			api_params_arr << radius
+			radius = 12000
 		end
-
-		if api_params_arr.length == 2
-			case_mode3(mode3, location, api_params_arr)
-		else
-			wrong.com
-		end
-	end
-	
-	def case_mode3(mode3, location, api_params_arr)
 		
-		api_params_arr
-
 		case mode3	
 
 		when "$"
 			price_tier = 1
-			api_params_arr << price_tier
 		when "$$"
 			price_tier = 2
-			api_params_arr << price_tier
 		when "$$$"
 			price_tier = 3
-			api_params_arr << price_tier
 		when "$$$$"
 			price_tier = 4
-			api_params_arr << price_tier
 		end
 
-		if api_params_arr.length == 3
-			api_call1(api_params_arr, location)
-		else
-			wrong.com
-		end
+		api_call1(categoryId, radius, location, price_tier)
 	end
 
-	def api_call1(api_params_arr, location)
+	def api_call1(m1, m2, location, m3)
 
 		client = Foursquare2::Client.new(:client_id => 'XFYKY1CI1GK1MHXLUG43THGBTYDFUUBFPXVLGNGD441C3HWO', :client_secret => '2J4FTZRUCVVTVM4OYMO2R15UJLPUQ4XOU4GJS1BGIYOK1YWV', :api_version => '20140928')
-		search = client.search_venues(:near => location, :radius => api_params_arr[1], :limit => 20, :categoryId => api_params_arr[0])
-		arrayiterate = (0..10).to_a
+		search = client.search_venues(:near => location, :radius => m2, :limit => 20, :categoryId => m1)
+
+		arrayiterate = (0..12).to_a
 		venueids = []
 
 		arrayiterate.each do |x|
@@ -183,29 +154,30 @@ class SurveysController < ApplicationController
 			venueid = venue.id
 			venueids << venueid
 		end
-	
-		api_call2(venueids, api_params_arr)
+
+		api_call2(venueids, m3)
 	end
 
-	def api_call2(arr,api_params_arr)
+	def api_call2(arr,m3)
 
 		client = Foursquare2::Client.new(:client_id => 'XFYKY1CI1GK1MHXLUG43THGBTYDFUUBFPXVLGNGD441C3HWO', :client_secret => '2J4FTZRUCVVTVM4OYMO2R15UJLPUQ4XOU4GJS1BGIYOK1YWV', :api_version => '20140928')
+
 		search_venues = []
 
 		arr.each do |x|
 			search_venues << client.venue(x)
 		end	
 
-		filter(search_venues,api_params_arr)
+		filter(search_venues,m3)
 	end
 
-	def filter(arr,api_params_arr)
+	def filter(arr,m3)
 
 		client = Foursquare2::Client.new(:client_id => 'XFYKY1CI1GK1MHXLUG43THGBTYDFUUBFPXVLGNGD441C3HWO', :client_secret => '2J4FTZRUCVVTVM4OYMO2R15UJLPUQ4XOU4GJS1BGIYOK1YWV', :api_version => '20140928')
 
 		matched_restaurants = []
 		arr.each do |x|
-			if x.price.tier == api_params_arr[2]
+			if x.price.tier == m3
 				matched_restaurants << x.name
 			end
 		end
