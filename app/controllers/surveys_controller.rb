@@ -10,22 +10,22 @@ class SurveysController < ApplicationController
 	end
 
 	def create
-		@people = params[:new_survey][:people]
-		@name = params[:new_survey][:name]
-		@location = params[:new_survey][:location]
-		@uniqueid = ('a'..'z').to_a.shuffle[0,8].join
-		@survey = Survey.new
-		@survey.name = @name
-		@survey.people = @people
-		@survey.location = @location
-		@survey.uniqueid = @uniqueid
-		@survey.q1 = []
-		@survey.q2 = []
-		@survey.q3 = []
-		@survey.restaurants = []
-		@survey.save
+		people = params[:new_survey][:people]
+		name = params[:new_survey][:name]
+		location = params[:new_survey][:location]
+		uniqueid = ('a'..'z').to_a.shuffle[0,8].join
+		survey = Survey.new
+		survey.name = name
+		survey.people = people
+		survey.location = location
+		survey.uniqueid = uniqueid
+		survey.q1 = []
+		survey.q2 = []
+		survey.q3 = []
+		survey.restaurants = []
+		survey.save
 
-		@link = "localhost:3000/survey_link/#{@uniqueid}"
+		@link = "localhost:3000/survey_link/#{uniqueid}"
 
 		account_sid = 'ACc81c5abf7e87ff004ebaa870388e0620' 
 		auth_token = '473558defcc16dc759b89bb55c664be6' 
@@ -105,7 +105,7 @@ class SurveysController < ApplicationController
 		when "Sushi"
 			categoryId = "4bf58dd8d48988d1d2941735"
 			api_params_arr << categoryId 
-		when "Burger"
+		when "Burgers"
 			categoryId = "4bf58dd8d48988d16c941735"
 			api_params_arr << categoryId 
 		when "Korean"
@@ -214,14 +214,26 @@ class SurveysController < ApplicationController
 
 		matched_restaurants = []
 		arr.each do |x|
-			if x.price.tier == api_params_arr[2]
+
+			#if x.price.tier == api_params_arr[2]
+			if x.price && x.price.tier == api_params_arr[2]
 				matched_restaurants << x.name
 			end
-		end
+
+		end 
+
+		# matched_restaurants = arr.select {|restaurant| restaurant.price && restaurant.price.tier == api_params_arr[2] }
 		
+		if matched_restaurants.length == 1
+		@restaurant1 = matched_restaurants[0]
+		elsif matched_restaurants.length >= 2 && matched_restaurants.length < 3
 		@restaurant1 = matched_restaurants[0]
 		@restaurant2 = matched_restaurants[1]		
-		@restaurant3 = matched_restaurants[2]	
+		elsif matched_restaurants.length >= 3
+		@restaurant1 = matched_restaurants[0]
+		@restaurant2 = matched_restaurants[1]		
+		@restaurant3 = matched_restaurants[2]
+		end
 
 		render 'show'	
 	end
