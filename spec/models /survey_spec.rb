@@ -18,11 +18,13 @@ describe Survey do
 #	end
 
 	it "has none to begin with" do
+      @survey = Survey.new
     	expect(Survey.count).to eq 0
   	end
 
-  	it "has one after adding one" do
-    	Survey.create
+  	it "has one upon creation" do
+    	@survey = Survey.new
+      @survey.save
     	expect(Survey.count).to eq 1
   	end
 
@@ -39,10 +41,28 @@ describe Survey do
   	end
 
   	it "should begin with a letter, number, or period" do
-  		@survey = Survey.new
-  		@survey.name = @name
-  		expect(@name).to start_with /[a-zA-Z]/
+  		survey = Survey.new
+  		survey.name = name
+  		expect(@survey.name).to start_with /[a-zA-Z]/
   	end
+
+    it "can be saved" do
+      survey = Survey.new
+      expect(Survey.save).to be_true
+    end
+
+    it "can creates an empty array" do
+      survey = Survey.new
+      survey.q1 = []
+      blah = survey.q1.length
+      expect(blah).to eql(0)
+    end
+
+    it "create a unique id with exactly 8 characters" do
+      uniqueid = ('a'..'z').to_a.shuffle[0,8].join
+      arrchars = uniqueid.split("")
+      expect(arrchars.length).to eq(8)
+    end
 
 
 end
