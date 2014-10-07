@@ -74,13 +74,22 @@ class SurveysController < ApplicationController
 	def mode(curr_record)
 
 		freq1 = curr_record.q1.inject(Hash.new(0)) { |h,v| h[v] += 1; h }
-		mode1 = curr_record.q1.max_by { |v| freq1[v] }
+		group = freq1.group_by{ |k,v| v }.each_with_object({}) { |(k,v), h| h[v.map(&:first).join(',')] = k }
+		pick = group.max_by { |k,v| v }
+		pick_first = pick.first.split(",")
+		mode1 = pick_first.sample
 
 		freq2 = curr_record.q2.inject(Hash.new(0)) { |h,v| h[v] += 1; h }
-		mode2 = curr_record.q2.max_by { |v| freq2[v] }
+		group = freq2.group_by{ |k,v| v }.each_with_object({}) { |(k,v), h| h[v.map(&:first).join(',')] = k }
+		pick = group.max_by { |k,v| v }
+		pick_first = pick.first.split(",")
+		mode2 = pick_first.sample
 
 		freq3 = curr_record.q3.inject(Hash.new(0)) { |h,v| h[v] += 1; h }
-		mode3 = curr_record.q3.max_by { |v| freq3[v] }
+		group = freq3.group_by{ |k,v| v }.each_with_object({}) { |(k,v), h| h[v.map(&:first).join(',')] = k }
+		pick = group.max_by { |k,v| v }
+		pick_first = pick.first.split(",")
+		mode3 = pick_first.sample
 
 		location = curr_record.location
 
