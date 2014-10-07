@@ -27,6 +27,15 @@ class SurveysController < ApplicationController
 
 		@link = "localhost:3000/survey_link/#{@uniqueid}"
 
+		account_sid = 'ACc81c5abf7e87ff004ebaa870388e0620' 
+		auth_token = '473558defcc16dc759b89bb55c664be6' 
+		@client = Twilio::REST::Client.new account_sid, auth_token 
+		@client.account.messages.create({
+			:from => '+14244887319', 
+			:to => '3104067401', 
+			:body => @link,  
+		})
+
 		render 'index'
 	end
 
