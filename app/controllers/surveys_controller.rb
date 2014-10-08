@@ -1,5 +1,8 @@
 class SurveysController < ApplicationController
 
+	skip_before_filter :verify_authenticity_token            
+	respond_to :json
+
 	def index
 	end
 
@@ -7,6 +10,8 @@ class SurveysController < ApplicationController
 		@info = Survey.find_by(uniqueid: params[:uniqueid])
 		@survey1 = true
 		@survey2 = false
+		@uniqueid = params[:uniqueid]
+		gon.uniqueid = @uniqueid
 	end
 
 	def create
@@ -23,6 +28,10 @@ class SurveysController < ApplicationController
 		survey.q2 = []
 		survey.q3 = []
 		survey.restaurants = []
+		survey.final_result = []
+		survey.venue_one = []
+		survey.venue_two = []
+		survey.venue_three = []
 		survey.save
 
 		@link = "localhost:3000/survey_link/#{uniqueid}"
@@ -221,29 +230,114 @@ class SurveysController < ApplicationController
 
 		client = Foursquare2::Client.new(:client_id => 'XFYKY1CI1GK1MHXLUG43THGBTYDFUUBFPXVLGNGD441C3HWO', :client_secret => '2J4FTZRUCVVTVM4OYMO2R15UJLPUQ4XOU4GJS1BGIYOK1YWV', :api_version => '20140928')
 
-		matched_restaurants = []
+		#venue_one = []
+		#venue_two = []
+		#venue_three = []
+		
+		#matched_restaurants = []
+		#matched_address = []
+		#matched_rating = []
+		#matched_tip1 = []
+		#matched_tip2 = []
+		#matched_tip3 = []
+		#matched_photos = []
+
+
+		final = Survey.find_by(uniqueid: params[:uniqueid])
+
 		arr.each do |x|
 
-			#if x.price.tier == api_params_arr[2]
 			if x.price && x.price.tier == api_params_arr[2]
-				matched_restaurants << x.name
+				if final.venue_one.length == 0 && final.venue_two.length == 0 && final.venue_three.length == 0
+					final.venue_one << x.name
+					final.venue_one << x.location.formattedAddress[0] + ", " + x.location.formattedAddress[1]
+					final.venue_one << x.rating
+					final.venue_one << x.tips.groups[0].items[0].text
+					final.venue_one << x.tips.groups[0].items[1].text
+					final.venue_one << x.tips.groups[0].items[2].text
+				elsif final.venue_one.length == 6 && final.venue_two.length == 0
+					final.venue_two << x.name
+					final.venue_two << x.location.formattedAddress[0] + ", " + x.location.formattedAddress[1]
+					final.venue_two << x.rating
+					final.venue_two << x.tips.groups[0].items[0].text
+					final.venue_two << x.tips.groups[0].items[1].text
+					final.venue_two << x.tips.groups[0].items[2].text
+				elsif final.venue_two.length == 6
+					final.venue_three << x.name
+					final.venue_three << x.location.formattedAddress[0] + ", " + x.location.formattedAddress[1]
+					final.venue_three << x.rating
+					final.venue_three << x.tips.groups[0].items[0].text
+					final.venue_three << x.tips.groups[0].items[1].text
+					final.venue_three << x.tips.groups[0].items[2].text
+				end
 			end
-
 		end 
+
+
+		#final_result = [venue_one, venue_two, venue_three]
+
+		final.final_result += final.venue_one
+		final.final_result += final.venue_two
+		final.final_result += final.venue_three
+		#final.final_result.save
+
+		final.save
+
+
 
 		# matched_restaurants = arr.select {|restaurant| restaurant.price && restaurant.price.tier == api_params_arr[2] }
 		
-		if matched_restaurants.length == 1
-		@restaurant1 = matched_restaurants[0]
-		elsif matched_restaurants.length >= 2 && matched_restaurants.length < 3
-		@restaurant1 = matched_restaurants[0]
-		@restaurant2 = matched_restaurants[1]		
-		elsif matched_restaurants.length >= 3
-		@restaurant1 = matched_restaurants[0]
-		@restaurant2 = matched_restaurants[1]		
-		@restaurant3 = matched_restaurants[2]
-		end
+		#if matched_restaurants.length == 0
+		#@restaurant1 = "Nada returned!"
+		#elsif matched_restaurants.length == 1
+		#@restaurant1 = matched_restaurants[0]
+		#elsif matched_restaurants.length >= 2 && matched_restaurants.length < 3
+		#@restaurant1 = matched_restaurants[0]
+		#@restaurant2 = matched_restaurants[1]		
+		#elsif matched_restaurants.length >= 3
 
-		render 'show'	
+		@restaurant1 = final.final_result[0] + " " + final.final_result[1] + " " + final.final_result[2].to_s + " " + final.final_result[3] + " " + final.final_result[4] + " " + final.final_result[5]
+
+		@restaurant2 = final.final_result[6] + " " + final.final_result[7] + " " + final.final_result[8].to_s + " " + final.final_result[9] + " " + final.final_result[10] + " " + final.final_result[11]
+
+		@restaurant3 = final.final_result[12] + " " + final.final_result[13] + " " + final.final_result[14].to_s + " " + final.final_result[15] + " " + final.final_result[16] + " " + final.final_result[17] 
+
+		#render 'show'	
+
+		top_rest
 	end
+
+
+	def ttop_rest
+    	@survey = Survey.last
+    	respond_to do |format|
+    	format.json { render :json => @survey }
+		end
+    end
+
+    # window.setTimeout(function(){ document.location.reload(true); }, 7000);
+
+	def top_rest
+		survey = Survey.find_by(uniqueid: params[:uniqueid])
+		render json: {
+			"venueOne" => survey.final_result[0],
+			"venueOneAddress" => survey.final_result[1],
+			"venueTwo" => survey.final_result[6],
+			"venueTwoAddress" => survey.final_result[7],
+			"venueThree" => survey.final_result[12],
+			"venueThreeAddress" => survey.final_result[13]
+		}
+	end
+
+#def top_rest
+#		@survey = Survey.last
+#		render json: {
+#			'restaurant1' => 'Shop House',
+#			'restaurant2' => 'Subway',
+#			'restaurant3' => 'Chipotle'
+#		}
+#	end
+
+
+
 end
