@@ -7,4 +7,5 @@ class Survey < ActiveRecord::Base
   #validates :name, length: { minimum: 10 }
   validates_presence_of :name
 
+
 end

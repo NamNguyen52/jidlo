@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141004194539) do
+ActiveRecord::Schema.define(version: 20141008025821) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,17 +19,22 @@ ActiveRecord::Schema.define(version: 20141004194539) do
   create_table "surveys", force: true do |t|
     t.string   "name"
     t.string   "location"
-    t.string   "q1",          default: [], array: true
-    t.string   "q2",          default: [], array: true
-    t.string   "q3",          default: [], array: true
-    t.string   "q4",          default: [], array: true
+    t.string   "q1",           default: [], array: true
+    t.string   "q2",           default: [], array: true
+    t.string   "q3",           default: [], array: true
+    t.string   "q4",           default: [], array: true
     t.integer  "people"
     t.string   "uniqueid"
-    t.string   "restaurants", default: [], array: true
+    t.string   "restaurants",  default: [], array: true
     t.datetime "created_at"
     t.datetime "updated_at"
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "survey2",      default: [], array: true
+    t.string   "final_result", default: [], array: true
+    t.string   "venue_one",    default: [], array: true
+    t.string   "venue_two",    default: [], array: true
+    t.string   "venue_three",  default: [], array: true
   end
 
 end

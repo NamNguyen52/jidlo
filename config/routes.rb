@@ -4,6 +4,13 @@ Rails.application.routes.draw do
   post '/new_survey' => 'surveys#create', as: :new_survey
   get '/survey_link/:uniqueid' => 'surveys#show', as: :show
   post '/response/:uniqueid' => 'surveys#crunch', as: :crunch
+  get 'api/:uniqueid/restaurants/top' => 'surveys#top_rest'
+  #get '/response/:uniqueid' => 'surveys#top_rest'
+
+  #get 'api/restaurants/top' => 'surveys#top_rest'
+
+  
+
 
   # The priority is based upon order  of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
