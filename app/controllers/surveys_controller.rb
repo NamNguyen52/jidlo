@@ -7,6 +7,8 @@ class SurveysController < ApplicationController
 		@info = Survey.find_by(uniqueid: params[:uniqueid])
 		@survey1 = true
 		@survey2 = false
+		@uniqueid = params[:uniqueid]
+		gon.uniqueid = @uniqueid
 	end
 
 	def create
@@ -245,5 +247,16 @@ class SurveysController < ApplicationController
 		end
 
 		render 'show'	
+	end
+
+	def top_rest
+
+		rest = Survey.find_by(uniqueid: params[:uniqueid])
+
+		render json: {
+			'restaurant1' => 'Shop House',
+			'restaurant2' => 'Subway',
+			'restaurant3' => 'Chipotle'
+		}
 	end
 end

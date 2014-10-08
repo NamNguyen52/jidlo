@@ -32,13 +32,16 @@
 
   <%= form_for(:response2, url: crunch_path) do |question| %>
 
-  <%= @restaurant1 %></br>
-  <%= @restaurant2 %></br>
-  <%= @restaurant3 %></br>
+    <%= @restaurant1 %></br>
+    <%= @restaurant2 %></br>
+    <%= @restaurant3 %></br>
+
+    <%= question.label :restaurant %> 
+    <%= question.select :restaurant, options_for_select(%w[option1 option2 option3]) %></br>
  
   <%= question.submit "submit responses!", :id => "survey2" %>
 
-<% end %>
+  <% end %>
 <% end %>
 
-
+<p id="rest"></p>

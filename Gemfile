@@ -4,6 +4,8 @@ group :development, :test do
   gem 'rspec-rails'
 end
 
+gem 'gon'
+
 gem 'foursquare2'
 
 gem 'geocoder'
