@@ -1,0 +1,24 @@
+// Place all the behaviors and hooks related to the matching controller here.
+// All this logic will automatically be available in application.js.
+// You can use CoffeeScript in this file: http://coffeescript.org/
+
+
+var apiCall = function() {
+
+	var api_url = '/api/' + gon.uniqueid + '/restaurants/top'
+
+	$.ajax({url: api_url, method: 'GET'}).done(function(data){
+		$("p#test").text(data.venueOne)
+		$("p#test2").text(data.venueTwo)
+		$("p#test3").text(data.venueThree)
+	});
+};
+
+var apiTimer = function() {
+	setInterval( function() {apiCall()}, 5000)	
+};
+
+$('h1#title').ready(function() { 
+	apiTimer();
+});
+

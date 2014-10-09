@@ -49,6 +49,8 @@ class SurveysController < ApplicationController
 	end
 
 	def crunch
+		@uniqueid = params[:uniqueid]
+		gon.uniqueid = @uniqueid
 		@survey1 = true
 		@survey2 = false
 		@info = Survey.find_by(uniqueid: params[:uniqueid])
@@ -296,48 +298,29 @@ class SurveysController < ApplicationController
 		#@restaurant2 = matched_restaurants[1]		
 		#elsif matched_restaurants.length >= 3
 
-		@restaurant1 = final.final_result[0] + " " + final.final_result[1] + " " + final.final_result[2].to_s + " " + final.final_result[3] + " " + final.final_result[4] + " " + final.final_result[5]
+		# @restaurant1 = final.final_result[0] + " " + final.final_result[1] + " " + final.final_result[2].to_s + " " + final.final_result[3] + " " + final.final_result[4] + " " + final.final_result[5]
 
-		@restaurant2 = final.final_result[6] + " " + final.final_result[7] + " " + final.final_result[8].to_s + " " + final.final_result[9] + " " + final.final_result[10] + " " + final.final_result[11]
+		# @restaurant2 = final.final_result[6] + " " + final.final_result[7] + " " + final.final_result[8].to_s + " " + final.final_result[9] + " " + final.final_result[10] + " " + final.final_result[11]
 
-		@restaurant3 = final.final_result[12] + " " + final.final_result[13] + " " + final.final_result[14].to_s + " " + final.final_result[15] + " " + final.final_result[16] + " " + final.final_result[17] 
+		# @restaurant3 = final.final_result[12] + " " + final.final_result[13] + " " + final.final_result[14].to_s + " " + final.final_result[15] + " " + final.final_result[16] + " " + final.final_result[17] 
 
-		#render 'show'	
+		render 'show'	
 
-		top_rest
 	end
-
-
-	def ttop_rest
-    	@survey = Survey.last
-    	respond_to do |format|
-    	format.json { render :json => @survey }
-		end
-    end
-
-    # window.setTimeout(function(){ document.location.reload(true); }, 7000);
 
 	def top_rest
 		survey = Survey.find_by(uniqueid: params[:uniqueid])
-		render json: {
-			"venueOne" => survey.final_result[0],
-			"venueOneAddress" => survey.final_result[1],
-			"venueTwo" => survey.final_result[6],
-			"venueTwoAddress" => survey.final_result[7],
-			"venueThree" => survey.final_result[12],
-			"venueThreeAddress" => survey.final_result[13]
+		
+		render json:
+		{
+			:venueOne => survey.final_result[0],
+			:venueOneAddress => survey.final_result[1],
+			:venueTwo => survey.final_result[6],
+			:venueTwoAddress => survey.final_result[7],
+			:venueThree => survey.final_result[12],
+			:venueThreeAddress => survey.final_result[13]
 		}
+		
 	end
-
-#def top_rest
-#		@survey = Survey.last
-#		render json: {
-#			'restaurant1' => 'Shop House',
-#			'restaurant2' => 'Subway',
-#			'restaurant3' => 'Chipotle'
-#		}
-#	end
-
-
 
 end

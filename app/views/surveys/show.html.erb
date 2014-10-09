@@ -3,7 +3,7 @@ window.onload = function(){ apiTimer();};
 </script>-->
 
 
-<h1 id="title">Lets get some damn lunch!</h1>
+<h1>Lets get some damn lunch!</h1>
 <% if @info != nil %>
 <h3>Survey sent by <%= @info.name %></h3>
 
@@ -31,31 +31,15 @@ window.onload = function(){ apiTimer();};
 <% end %>
 
 <% if @survey2 %>
-  <h1>Survey 2</h1>
+  <h1 id="title">Survey 2</h1>
 
   <%= form_for(:response2, url: crunch_path) do |question| %>
 
 
   <%= @restaurant1 %></br>
-  <%= @address1 %></br>
-  <%= @rating1 %></br>
-  <%= @tip1 %></br>
-  <%= @tip11 %></br>
-  <%= @tip111 %></br>
-  <br/>
   <%= @restaurant2 %></br>
-  <%= @address2 %></br>
-  <%= @rating2 %></br>
-  <%= @tip2 %></br>
-  <%= @tip22 %></br>
-  <%= @tip222 %></br>
-  <br/>
   <%= @restaurant3 %></br>
-  <%= @address3 %></br>
-  <%= @rating3 %></br>
-  <%= @tip3 %></br>
-  <%= @tip33 %></br>
-  <%= @tip333 %> </br>
+ 
  
   <%= question.submit "submit responses!", :id => "survey2" %>
 
@@ -63,7 +47,8 @@ window.onload = function(){ apiTimer();};
 <% end %>
 
 <p id="test"></p>
-
+<p id="test2"></p>
+<p id="test3"></p>
 
 
 

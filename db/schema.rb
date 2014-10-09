@@ -28,8 +28,6 @@ ActiveRecord::Schema.define(version: 20141008025821) do
     t.string   "restaurants",  default: [], array: true
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.float    "latitude"
-    t.float    "longitude"
     t.string   "survey2",      default: [], array: true
     t.string   "final_result", default: [], array: true
     t.string   "venue_one",    default: [], array: true
