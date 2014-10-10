@@ -30,25 +30,65 @@ window.onload = function(){ apiTimer();};
 <% end %>
 <% end %>
 
+
 <% if @survey2 %>
   <h1 id="title">Survey 2</h1>
 
-  <%= form_for(:response2, url: crunch_path) do |question| %>
 
 
-  <%= @restaurant1 %></br>
-  <%= @restaurant2 %></br>
-  <%= @restaurant3 %></br>
- 
- 
-  <%= question.submit "submit responses!", :id => "survey2" %>
+<%= form_for(:responsetwo, url: crunchtwo_path, method: :post) do |f| %>
+   
+  <p id="test1" style="color:red"></p>      
+  <%= f.check_box :restaurant, {}, "venueone", false %> <br/>
+
+  <p id="test2" style="color:red"></p>      
+  <%= f.check_box :restaurant, {}, "venuetwo", false %> <br/>
+
+  <p id="test3" style="color:red"></p>      
+  <%= f.check_box :restaurant, {}, "venuethree", false %> <br/>
+
+    
+  <%= f.submit "Submit This B!" %>
+
 
 <% end %>
+
 <% end %>
 
-<p id="test"></p>
-<p id="test2"></p>
-<p id="test3"></p>
+
+<% if @survey3 %>
+
+<h2>THIS is SURVEY three AKA final RESULT</h2>
+ <p id="venueFinal" style="color:purple"></p>  
+
+
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<p id="test1" style="color:red"></p>
+<p id="test11" style="color:red"></p>
+<p id="test2" style="color:blue"></p>
+<p id="test22" style="color:blue"></p>
+<p id="test3" style="color:green"></p>
+<p id="test33" style="color:green"></p>
+-->
+
 
 
 

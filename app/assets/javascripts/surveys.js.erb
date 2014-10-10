@@ -6,12 +6,24 @@
 var apiCall = function() {
 
 	var api_url = '/api/' + gon.uniqueid + '/restaurants/top'
+	var api_url_two = '/api/' + gon.uniqueid + '/restaurants/toptwo'
 
 	$.ajax({url: api_url, method: 'GET'}).done(function(data){
-		$("p#test").text(data.venueOne)
+		$("p#test1").text(data.venueOne)
+		$("p#test11").text(data.venueOneAddress)
 		$("p#test2").text(data.venueTwo)
+		$("p#test22").text(data.venueTwoAddress)
 		$("p#test3").text(data.venueThree)
+		$("p#test33").text(data.venueThreeAddress)
+
 	});
+
+		$.ajax({url: api_url_two, method: 'GET'}).done(function(data){
+		$("p#venueFinal").text(data.venue)
+
+	});
+
+
 };
 
 var apiTimer = function() {
@@ -21,4 +33,3 @@ var apiTimer = function() {
 $('h1#title').ready(function() { 
 	apiTimer();
 });
-
