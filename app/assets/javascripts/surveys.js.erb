@@ -8,9 +8,11 @@ var apiCall = function() {
 	var api_url = '/api/' + gon.uniqueid + '/restaurants/top'
 
 	$.ajax({url: api_url, method: 'GET'}).done(function(data){
-		$("p#test").text(data.venueOne)
-		$("p#test2").text(data.venueTwo)
-		$("p#test3").text(data.venueThree)
+		if (data.venueOne && data.venueTwo && data.venueThree) {
+			$("p#test").text(data.venueOne)
+			$("p#test2").text(data.venueTwo)
+			$("p#test3").text(data.venueThree)
+		};
 	});
 };
 

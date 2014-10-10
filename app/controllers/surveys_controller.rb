@@ -7,6 +7,7 @@ class SurveysController < ApplicationController
 	end
 
 	def show
+		@final_screen = false
 		@info = Survey.find_by(uniqueid: params[:uniqueid])
 		@survey1 = true
 		@survey2 = false
@@ -285,25 +286,6 @@ class SurveysController < ApplicationController
 
 		final.save
 
-
-
-		# matched_restaurants = arr.select {|restaurant| restaurant.price && restaurant.price.tier == api_params_arr[2] }
-		
-		#if matched_restaurants.length == 0
-		#@restaurant1 = "Nada returned!"
-		#elsif matched_restaurants.length == 1
-		#@restaurant1 = matched_restaurants[0]
-		#elsif matched_restaurants.length >= 2 && matched_restaurants.length < 3
-		#@restaurant1 = matched_restaurants[0]
-		#@restaurant2 = matched_restaurants[1]		
-		#elsif matched_restaurants.length >= 3
-
-		# @restaurant1 = final.final_result[0] + " " + final.final_result[1] + " " + final.final_result[2].to_s + " " + final.final_result[3] + " " + final.final_result[4] + " " + final.final_result[5]
-
-		# @restaurant2 = final.final_result[6] + " " + final.final_result[7] + " " + final.final_result[8].to_s + " " + final.final_result[9] + " " + final.final_result[10] + " " + final.final_result[11]
-
-		# @restaurant3 = final.final_result[12] + " " + final.final_result[13] + " " + final.final_result[14].to_s + " " + final.final_result[15] + " " + final.final_result[16] + " " + final.final_result[17] 
-
 		render 'show'	
 
 	end
@@ -321,6 +303,35 @@ class SurveysController < ApplicationController
 			:venueThreeAddress => survey.final_result[13]
 		}
 		
+	end
+
+	def crunchtwo
+		@final_section = true
+		@survey1 = false
+		@survey2 = false
+		@info = Survey.find_by(uniqueid: params[:uniqueid])
+		survey = Survey.find_by(uniqueid: params[:uniqueid])
+		rest1 = params[:response2][:option1]
+		rest2 = params[:response2][:option2]
+		rest3 = params[:response2][:option3]
+
+
+		if rest1 == "venueOne"
+			survey.restaurants += [rest1]
+			survey.save
+		end
+
+		if rest1 == "venueTwo"
+			survey.restaurants += [rest2]
+			survey.save
+		end
+
+		if rest1 == "venueThree"
+			survey.restaurants += [rest3]
+			survey.save
+		end
+
+		render 'show'	
 	end
 
 end

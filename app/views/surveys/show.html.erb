@@ -33,22 +33,25 @@ window.onload = function(){ apiTimer();};
 <% if @survey2 %>
   <h1 id="title">Survey 2</h1>
 
-  <%= form_for(:response2, url: crunch_path) do |question| %>
+  <%= form_for(:response2, url: crunch_two_path, method: :post) do |question| %>
 
+    <p id="test"></p>
+    <%= question.check_box :option1, {}, "venueOne", 0 %>
 
-  <%= @restaurant1 %></br>
-  <%= @restaurant2 %></br>
-  <%= @restaurant3 %></br>
- 
+    <p id="test2"></p>
+    <%= question.check_box :option2, {}, "venueTwo", 0 %>
+
+    <p id="test3"></p>
+    <%= question.check_box :option3, {}, "venueThree", 0 %> 
  
   <%= question.submit "submit responses!", :id => "survey2" %>
 
 <% end %>
 <% end %>
 
-<p id="test"></p>
-<p id="test2"></p>
-<p id="test3"></p>
+<% if @final_section %>
+<h1>FINAL</h1>
 
+<% end %>
 
 
