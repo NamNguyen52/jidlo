@@ -35,13 +35,14 @@ class SurveysController < ApplicationController
 		survey.venue_two = []
 		survey.venue_three = []
 		survey.save
+		survey.numbers
 
 		@link = "localhost:3000/survey_link/#{uniqueid}"
 
 		account_sid = 'ACc81c5abf7e87ff004ebaa870388e0620' 
 		auth_token = '473558defcc16dc759b89bb55c664be6' 
 		@client = Twilio::REST::Client.new account_sid, auth_token 
-		@client.account.messages.create({
+			@client.account.messages.create({
 			:from => '+14244887319', 
 			:to => '3104067401', 
 			:body => @link,  
@@ -243,22 +244,25 @@ class SurveysController < ApplicationController
 				if final.venue_one.length == 0 && final.venue_two.length == 0 && final.venue_three.length == 0
 					final.venue_one += [x.name]
 					final.venue_one += [x.location.formattedAddress[0] + ", " + x.location.formattedAddress[1]]
+					final.venue_one += [x.price.tier]
 					final.venue_one += [x.rating]
 					final.venue_one += [x.tips.groups[0].items[0].text]
 					final.venue_one += [x.tips.groups[0].items[1].text]
 					final.venue_one += [x.tips.groups[0].items[2].text]
 					final.save
-				elsif final.venue_one.length == 6 && final.venue_two.length == 0
+				elsif final.venue_one.length == 7 && final.venue_two.length == 0
 					final.venue_two += [x.name]
 					final.venue_two += [x.location.formattedAddress[0] + ", " + x.location.formattedAddress[1]]
+					final.venue_two += [x.price.tier]
 					final.venue_two += [x.rating]
 					final.venue_two += [x.tips.groups[0].items[0].text]
 					final.venue_two += [x.tips.groups[0].items[1].text]
 					final.venue_two += [x.tips.groups[0].items[2].text]
 					final.save
-				elsif final.venue_two.length == 6
+				elsif final.venue_two.length == 7
 					final.venue_three += [x.name]
 					final.venue_three += [x.location.formattedAddress[0] + ", " + x.location.formattedAddress[1]]
+					final.venue_three += [x.price.tier]
 					final.venue_three += [x.rating]
 					final.venue_three += [x.tips.groups[0].items[0].text]
 					final.venue_three += [x.tips.groups[0].items[1].text]
@@ -286,11 +290,28 @@ class SurveysController < ApplicationController
 		render json:
 		{
 			:venueOne => survey.final_result[0],
-			:venueOneAddress => survey.final_result[1],
-			:venueTwo => survey.final_result[6],
-			:venueTwoAddress => survey.final_result[7],
-			:venueThree => survey.final_result[12],
-			:venueThreeAddress => survey.final_result[13]
+			:venueOnePrice => survey.final_result[1],
+			:venueOneRating => survey.final_result[2],
+			:venueOneAddress => survey.final_result[3],
+			:venueOneTip1 => survey.final_result[4],
+			:venueOneTip2 => survey.final_result[5],
+			:venueOneTip3 => survey.final_result[6],
+
+			:venueTwo => survey.final_result[7],
+			:venueTwoPrice => survey.final_result[8],
+			:venueTwoRating => survey.final_result[9],
+			:venueTwoAddress => survey.final_result[10],
+			:venueTwoTip1 => survey.final_result[11],
+			:venueTwoTip2 => survey.final_result[12],
+			:venueTwoTip3 => survey.final_result[13],
+
+			:venueThree => survey.final_result[14],
+			:venueThreePrice => survey.final_result[15],
+			:venueThreeRating => survey.final_result[16],
+			:venueThreeAddress => survey.final_result[17],
+			:venueThreeTip1 => survey.final_result[18],
+			:venueThreeTip2 => survey.final_result[19],
+			:venueThreeTip3 => survey.final_result[20],
 		}
 		
 	end
@@ -338,19 +359,25 @@ class SurveysController < ApplicationController
 				render json:
 				{
 					:venue => final_venue.venue_one[0],
-					:venueAddress => final_venue.venue_one[1]	
+					:venuePrice => final_venue.venue_one[1],
+					:venueRating => final_venue.venue_one[2],
+					:venueAddress => final_venue.venue_one[3]	
 				}
 			elsif mode11 == "venuetwo"
 				render json:
 				{
 					:venue => final_venue.venue_two[0],
-					:venueAddress => final_venue.venue_two[1]	
+					:venuePrice => final_venue.venue_two[1],
+					:venueRating => final_venue.venue_two[2],
+					:venueAddress => final_venue.venue_two[3]	
 				}
 			elsif mode11 == "venuethree"
 				render json:
 				{
 					:venue => final_venue.venue_three[0],
-					:venueAddress => final_venue.venue_three[1]	
+					:venuePrice => final_venue.venue_three[1],
+					:venueRating => final_venue.venue_three[2],
+					:venueAddress => final_venue.venue_three[3]	
 				}
 			end
 
