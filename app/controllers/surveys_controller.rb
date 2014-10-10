@@ -17,11 +17,11 @@ class SurveysController < ApplicationController
 
 	def create
 		people = params[:new_survey][:people]
-		name = params[:new_survey][:name]
+		@name = params[:new_survey][:name]
 		location = params[:new_survey][:location]
 		uniqueid = ('a'..'z').to_a.shuffle[0,8].join
 		survey = Survey.new
-		survey.name = name
+		survey.name = @name
 		survey.people = people
 		survey.location = location
 		survey.uniqueid = uniqueid
@@ -37,14 +37,15 @@ class SurveysController < ApplicationController
 		survey.save
 
 		@link = "localhost:3000/survey_link/#{uniqueid}"
+		@number = params[:new_survey][:number]
 
 		account_sid = 'ACc81c5abf7e87ff004ebaa870388e0620' 
 		auth_token = '473558defcc16dc759b89bb55c664be6' 
 		@client = Twilio::REST::Client.new account_sid, auth_token 
 		@client.account.messages.create({
 			:from => '+14244887319', 
-			:to => '3104067401', 
-			:body => @link,  
+			:to => @number, 
+			:body => @name + ' sent you a Jidlo survey. Here\'s the link: ' + @link,  
 		})
 
 		render 'index'

@@ -38,7 +38,9 @@ google.maps.event.addDomListener(window, 'load', initialize, latitude(pos), long
 
   <%= q.text_field :latitude, id: "getLat", :placeholder => "Latitude" %><br/><br/>
 
-  <%= q.text_field :longitude, id: "getLng", :placeholder => "Longitude"%><br/><br/> 
+  <%= q.text_field :longitude, id: "getLng", :placeholder => "Longitude"%><br/><br/>
+
+  <%= q.text_field :number,:rows => 4, :placeholder => "enter number" %> 
 
   <%= q.submit "Generate survey link" %>
 
