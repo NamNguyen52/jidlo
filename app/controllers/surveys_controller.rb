@@ -10,6 +10,7 @@ class SurveysController < ApplicationController
 		@info = Survey.find_by(uniqueid: params[:uniqueid])
 		@survey1 = true
 		@survey2 = false
+		@survey3 = false
 		@uniqueid = params[:uniqueid]
 		gon.uniqueid = @uniqueid
 	end
@@ -28,6 +29,7 @@ class SurveysController < ApplicationController
 		survey.q2 = []
 		survey.q3 = []
 		survey.restaurants = []
+		survey.restaurant = []
 		survey.final_result = []
 		survey.venue_one = []
 		survey.venue_two = []
@@ -53,6 +55,7 @@ class SurveysController < ApplicationController
 		gon.uniqueid = @uniqueid
 		@survey1 = true
 		@survey2 = false
+		@survey3 = false
 		@info = Survey.find_by(uniqueid: params[:uniqueid])
 		ques = Survey.find_by(uniqueid: params[:uniqueid])
 
@@ -232,78 +235,47 @@ class SurveysController < ApplicationController
 
 		client = Foursquare2::Client.new(:client_id => 'XFYKY1CI1GK1MHXLUG43THGBTYDFUUBFPXVLGNGD441C3HWO', :client_secret => '2J4FTZRUCVVTVM4OYMO2R15UJLPUQ4XOU4GJS1BGIYOK1YWV', :api_version => '20140928')
 
-		#venue_one = []
-		#venue_two = []
-		#venue_three = []
-		
-		#matched_restaurants = []
-		#matched_address = []
-		#matched_rating = []
-		#matched_tip1 = []
-		#matched_tip2 = []
-		#matched_tip3 = []
-		#matched_photos = []
-
-
 		final = Survey.find_by(uniqueid: params[:uniqueid])
 
 		arr.each do |x|
 
 			if x.price && x.price.tier == api_params_arr[2]
 				if final.venue_one.length == 0 && final.venue_two.length == 0 && final.venue_three.length == 0
-					final.venue_one << x.name
-					final.venue_one << x.location.formattedAddress[0] + ", " + x.location.formattedAddress[1]
-					final.venue_one << x.rating
-					final.venue_one << x.tips.groups[0].items[0].text
-					final.venue_one << x.tips.groups[0].items[1].text
-					final.venue_one << x.tips.groups[0].items[2].text
+					final.venue_one += [x.name]
+					final.venue_one += [x.location.formattedAddress[0] + ", " + x.location.formattedAddress[1]]
+					final.venue_one += [x.rating]
+					final.venue_one += [x.tips.groups[0].items[0].text]
+					final.venue_one += [x.tips.groups[0].items[1].text]
+					final.venue_one += [x.tips.groups[0].items[2].text]
+					final.save
 				elsif final.venue_one.length == 6 && final.venue_two.length == 0
-					final.venue_two << x.name
-					final.venue_two << x.location.formattedAddress[0] + ", " + x.location.formattedAddress[1]
-					final.venue_two << x.rating
-					final.venue_two << x.tips.groups[0].items[0].text
-					final.venue_two << x.tips.groups[0].items[1].text
-					final.venue_two << x.tips.groups[0].items[2].text
+					final.venue_two += [x.name]
+					final.venue_two += [x.location.formattedAddress[0] + ", " + x.location.formattedAddress[1]]
+					final.venue_two += [x.rating]
+					final.venue_two += [x.tips.groups[0].items[0].text]
+					final.venue_two += [x.tips.groups[0].items[1].text]
+					final.venue_two += [x.tips.groups[0].items[2].text]
+					final.save
 				elsif final.venue_two.length == 6
-					final.venue_three << x.name
-					final.venue_three << x.location.formattedAddress[0] + ", " + x.location.formattedAddress[1]
-					final.venue_three << x.rating
-					final.venue_three << x.tips.groups[0].items[0].text
-					final.venue_three << x.tips.groups[0].items[1].text
-					final.venue_three << x.tips.groups[0].items[2].text
+					final.venue_three += [x.name]
+					final.venue_three += [x.location.formattedAddress[0] + ", " + x.location.formattedAddress[1]]
+					final.venue_three += [x.rating]
+					final.venue_three += [x.tips.groups[0].items[0].text]
+					final.venue_three += [x.tips.groups[0].items[1].text]
+					final.venue_three += [x.tips.groups[0].items[2].text]
+					final.save
 				end
 			end
 		end 
 
-
-		#final_result = [venue_one, venue_two, venue_three]
-
 		final.final_result += final.venue_one
 		final.final_result += final.venue_two
 		final.final_result += final.venue_three
-		#final.final_result.save
 
 		final.save
 
-
-
 		# matched_restaurants = arr.select {|restaurant| restaurant.price && restaurant.price.tier == api_params_arr[2] }
 		
-		#if matched_restaurants.length == 0
-		#@restaurant1 = "Nada returned!"
-		#elsif matched_restaurants.length == 1
-		#@restaurant1 = matched_restaurants[0]
-		#elsif matched_restaurants.length >= 2 && matched_restaurants.length < 3
-		#@restaurant1 = matched_restaurants[0]
-		#@restaurant2 = matched_restaurants[1]		
-		#elsif matched_restaurants.length >= 3
-
-		# @restaurant1 = final.final_result[0] + " " + final.final_result[1] + " " + final.final_result[2].to_s + " " + final.final_result[3] + " " + final.final_result[4] + " " + final.final_result[5]
-
-		# @restaurant2 = final.final_result[6] + " " + final.final_result[7] + " " + final.final_result[8].to_s + " " + final.final_result[9] + " " + final.final_result[10] + " " + final.final_result[11]
-
-		# @restaurant3 = final.final_result[12] + " " + final.final_result[13] + " " + final.final_result[14].to_s + " " + final.final_result[15] + " " + final.final_result[16] + " " + final.final_result[17] 
-
 		render 'show'	
 
 	end
@@ -322,5 +294,70 @@ class SurveysController < ApplicationController
 		}
 		
 	end
+
+	def crunchtwo
+		@uniqueid = params[:uniqueid]
+		gon.uniqueid = @uniqueid
+		@survey1 = false
+		@survey2 = true
+		@survey3 = false
+		@info = Survey.find_by(uniqueid: params[:uniqueid])
+		final_venue = Survey.find_by(uniqueid: params[:uniqueid])
+		
+		final_venue.restaurant += [params[:responsetwo][:restaurant]]
+
+		final_venue.save
+
+		if final_venue.save
+			@survey3 = true
+			@survey2 = false
+			@survey1 = false
+		else
+			render 'show'
+		end
+
+		render 'show'
+	
+	end
+
+
+	def top_rest_two
+
+		final_venue = Survey.find_by(uniqueid: params[:uniqueid])
+
+		if final_venue.restaurant && final_venue.restaurant.length == final_venue.people
+
+		freq1 = final_venue.restaurant.inject(Hash.new(0)) { |h,v| h[v] += 1; h }
+		group = freq1.group_by{ |k,v| v }.each_with_object({}) { |(k,v), h| h[v.map(&:first).join(',')] = k }
+		pick = group.max_by { |k,v| v }
+		pick_first = pick.first.split(",")
+		mode11 = pick_first.sample
+
+
+			if mode11 == "venueone"
+				render json:
+				{
+					:venue => final_venue.venue_one[0],
+					:venueAddress => final_venue.venue_one[1]	
+				}
+			elsif mode11 == "venuetwo"
+				render json:
+				{
+					:venue => final_venue.venue_two[0],
+					:venueAddress => final_venue.venue_two[1]	
+				}
+			elsif mode11 == "venuethree"
+				render json:
+				{
+					:venue => final_venue.venue_three[0],
+					:venueAddress => final_venue.venue_three[1]	
+				}
+			end
+
+		end
+
+
+	end
+
 
 end
