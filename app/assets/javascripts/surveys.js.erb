@@ -9,18 +9,38 @@ var apiCall = function() {
 	var api_url_two = '/api/' + gon.uniqueid + '/restaurants/toptwo'
 
 	$.ajax({url: api_url, method: 'GET'}).done(function(data){
-		$("p#test1").text(data.venueOne)
-		$("p#test11").text(data.venueOneAddress)
-		$("p#test2").text(data.venueTwo)
-		$("p#test22").text(data.venueTwoAddress)
-		$("p#test3").text(data.venueThree)
-		$("p#test33").text(data.venueThreeAddress)
+		$("p#ven1").text(data.venueOne)
+		$("p#ven1Price").text(data.venueOnePrice)
+		$("p#ven1Rating").text(data.venueOneRating)
+		$("p#ven1Address").text(data.venueOneAddress)
+		$("p#ven1Tip1").text(data.venueOneTip1)
+		$("p#ven1Tip2").text(data.venueOneTip2)
+		$("p#ven1Tip3").text(data.venueOneTip3)
+
+		$("p#ven2").text(data.venueTwo)
+		$("p#ven2Price").text(data.venueTwoPrice)
+		$("p#ven2Rating").text(data.venueTwoRating)
+		$("p#ven2Address").text(data.venueTwoAddress)
+		$("p#ven2Tip1").text(data.venueTwoTip1)
+		$("p#ven2Tip2").text(data.venueTwoTip2)
+		$("p#ven2Tip3").text(data.venueTwoTip3)
+
+		$("p#ven3").text(data.venueThree)
+		$("p#ven3Price").text(data.venueThreePrice)
+		$("p#ven3Rating").text(data.venueThreeRating)
+		$("p#ven3Address").text(data.venueThreeAddress)
+		$("p#ven3Tip1").text(data.venueThreeTip1)
+		$("p#ven3Tip2").text(data.venueThreeTip2)
+		$("p#ven3Tip3").text(data.venueThreeTip3)
 
 	});
 
 		$.ajax({url: api_url_two, method: 'GET'}).done(function(data){
 		$("p#venueFinal").text(data.venue)
-
+		$("p#venueFinalPrice").text(data.venuePrice)
+		$("p#venueFinalRating").text(data.venueRating)
+		$("p#venueFinalAddress").text(data.venueAddress)
+		
 	});
 
 

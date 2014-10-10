@@ -38,13 +38,31 @@ window.onload = function(){ apiTimer();};
 
 <%= form_for(:responsetwo, url: crunchtwo_path, method: :post) do |f| %>
    
-  <p id="test1" style="color:red"></p>      
+  <p id="ven1" style="color:red"></p> 
+  <p id="ven1Price" style="color:red"></p> 
+  <p id="ven1Rating" style="color:red"></p>
+  <p id="ven1Address" style="color:red"></p> 
+  <p id="ven1Tip1" style="color:red"></p>  
+  <p id="ven1Tip2" style="color:red"></p> 
+  <p id="ven1Tip3" style="color:red"></p>      
   <%= f.check_box :restaurant, {}, "venueone", false %> <br/>
 
-  <p id="test2" style="color:red"></p>      
+  <p id="ven2" style="color:red"></p> 
+  <p id="ven2Price" style="color:red"></p> 
+  <p id="ven2Rating" style="color:red"></p> 
+  <p id="ven2Address" style="color:red"></p> 
+  <p id="ven2Tip1" style="color:red"></p> 
+  <p id="ven2Tip2" style="color:red"></p> 
+  <p id="ven2Tip3" style="color:red"></p>      
   <%= f.check_box :restaurant, {}, "venuetwo", false %> <br/>
 
-  <p id="test3" style="color:red"></p>      
+  <p id="ven3" style="color:red"></p>  
+  <p id="ven3Price" style="color:red"></p>  
+  <p id="ven3Rating" style="color:red"></p> 
+  <p id="ven3Address" style="color:red"></p>  
+  <p id="ven3Tip1" style="color:red"></p>  
+  <p id="ven3Tip2" style="color:red"></p>  
+  <p id="ven3Tip3" style="color:red"></p>      
   <%= f.check_box :restaurant, {}, "venuethree", false %> <br/>
 
     
@@ -60,6 +78,9 @@ window.onload = function(){ apiTimer();};
 
 <h2>THIS is SURVEY three AKA final RESULT</h2>
  <p id="venueFinal" style="color:purple"></p>  
+ <p id="venueFinalPrice" style="color:red"></p>  
+ <p id="venueFinalRating" style="color:green"></p>  
+ <p id="venueFinalAddress" style="color:blue"></p>  
 
 
 <% end %>
