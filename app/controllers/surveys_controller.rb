@@ -40,8 +40,8 @@ class SurveysController < ApplicationController
 		survey.venue_three = []
 		survey.save
 		survey.numbers
-
-		@link = "localhost:3000/survey_link/#{uniqueid}"
+		
+		@link = "http://glacial-atoll-7506.herokuapp.com/survey_link/#{uniqueid}"
 
 		account_sid = 'ACc81c5abf7e87ff004ebaa870388e0620' 
 		auth_token = '473558defcc16dc759b89bb55c664be6' 
@@ -253,8 +253,14 @@ class SurveysController < ApplicationController
 					final.venue_one += [x.tips.groups[0].items[0].text]
 					final.venue_one += [x.tips.groups[0].items[1].text]
 					final.venue_one += [x.tips.groups[0].items[2].text]
+					final.venue_one += [x.photos.groups[0].items[0].prefix + "300x300" + x.photos.groups[0].items[0].suffix]
+					final.venue_one += [x.photos.groups[0].items[1].prefix + "300x300" + x.photos.groups[0].items[1].suffix]
+					final.venue_one += [x.photos.groups[0].items[2].prefix + "300x300" + x.photos.groups[0].items[2].suffix]
+					final.venue_one += [x.photos.groups[0].items[3].prefix + "300x300" + x.photos.groups[0].items[3].suffix]
+					final.venue_one += [x.photos.groups[0].items[4].prefix + "300x300" + x.photos.groups[0].items[4].suffix]
+					final.venue_one += [x.photos.groups[0].items[5].prefix + "300x300" + x.photos.groups[0].items[5].suffix]
 					final.save
-				elsif final.venue_one.length == 7 && final.venue_two.length == 0
+				elsif final.venue_one.length == 13 && final.venue_two.length == 0
 					final.venue_two += [x.name]
 					final.venue_two += [x.location.formattedAddress[0] + ", " + x.location.formattedAddress[1]]
 					final.venue_two += [x.price.tier]
@@ -262,8 +268,14 @@ class SurveysController < ApplicationController
 					final.venue_two += [x.tips.groups[0].items[0].text]
 					final.venue_two += [x.tips.groups[0].items[1].text]
 					final.venue_two += [x.tips.groups[0].items[2].text]
+					final.venue_two += [x.photos.groups[0].items[0].prefix + "400x400" + x.photos.groups[0].items[0].suffix]
+					final.venue_two += [x.photos.groups[0].items[1].prefix + "400x400" + x.photos.groups[0].items[1].suffix]
+					final.venue_two += [x.photos.groups[0].items[2].prefix + "400x400" + x.photos.groups[0].items[2].suffix]
+					final.venue_two += [x.photos.groups[0].items[3].prefix + "400x400" + x.photos.groups[0].items[3].suffix]
+					final.venue_two += [x.photos.groups[0].items[4].prefix + "400x400" + x.photos.groups[0].items[4].suffix]
+					final.venue_two += [x.photos.groups[0].items[5].prefix + "400x400" + x.photos.groups[0].items[5].suffix]
 					final.save
-				elsif final.venue_two.length == 7
+				elsif final.venue_two.length == 13
 					final.venue_three += [x.name]
 					final.venue_three += [x.location.formattedAddress[0] + ", " + x.location.formattedAddress[1]]
 					final.venue_three += [x.price.tier]
@@ -271,6 +283,12 @@ class SurveysController < ApplicationController
 					final.venue_three += [x.tips.groups[0].items[0].text]
 					final.venue_three += [x.tips.groups[0].items[1].text]
 					final.venue_three += [x.tips.groups[0].items[2].text]
+					final.venue_three += [x.photos.groups[0].items[0].prefix + "400x400" + x.photos.groups[0].items[0].suffix]
+					final.venue_three += [x.photos.groups[0].items[1].prefix + "400x400" + x.photos.groups[0].items[1].suffix]
+					final.venue_three += [x.photos.groups[0].items[2].prefix + "400x400" + x.photos.groups[0].items[2].suffix]
+					final.venue_three += [x.photos.groups[0].items[3].prefix + "400x400" + x.photos.groups[0].items[3].suffix]
+					final.venue_three += [x.photos.groups[0].items[4].prefix + "400x400" + x.photos.groups[0].items[4].suffix]
+					final.venue_three += [x.photos.groups[0].items[5].prefix + "400x400" + x.photos.groups[0].items[5].suffix]
 					final.save
 				end
 			end
@@ -300,22 +318,41 @@ class SurveysController < ApplicationController
 			:venueOneTip1 => survey.final_result[4],
 			:venueOneTip2 => survey.final_result[5],
 			:venueOneTip3 => survey.final_result[6],
+			:venueOnePhoto1 => survey.final_result[7],
+			:venueOnePhoto2 => survey.final_result[8],
+			:venueOnePhoto3 => survey.final_result[9],
+			:venueOnePhoto4 => survey.final_result[10],
+			:venueOnePhoto5 => survey.final_result[11],
+			:venueOnePhoto6 => survey.final_result[12],
 
-			:venueTwo => survey.final_result[7],
-			:venueTwoPrice => survey.final_result[8],
-			:venueTwoRating => survey.final_result[9],
-			:venueTwoAddress => survey.final_result[10],
-			:venueTwoTip1 => survey.final_result[11],
-			:venueTwoTip2 => survey.final_result[12],
-			:venueTwoTip3 => survey.final_result[13],
+			:venueTwo => survey.final_result[13],
+			:venueTwoPrice => survey.final_result[14],
+			:venueTwoRating => survey.final_result[15],
+			:venueTwoAddress => survey.final_result[16],
+			:venueTwoTip1 => survey.final_result[17],
+			:venueTwoTip2 => survey.final_result[18],
+			:venueTwoTip3 => survey.final_result[19],
+			:venueTwoPhoto1 => survey.final_result[20],
+			:venueTwoPhoto2 => survey.final_result[21],
+			:venueTwoPhoto3 => survey.final_result[22],
+			:venueTwoPhoto4 => survey.final_result[23],
+			:venueTwoPhoto5 => survey.final_result[24],
+			:venueTwoPhoto6 => survey.final_result[25],
 
-			:venueThree => survey.final_result[14],
-			:venueThreePrice => survey.final_result[15],
-			:venueThreeRating => survey.final_result[16],
-			:venueThreeAddress => survey.final_result[17],
-			:venueThreeTip1 => survey.final_result[18],
-			:venueThreeTip2 => survey.final_result[19],
-			:venueThreeTip3 => survey.final_result[20],
+
+			:venueThree => survey.final_result[26],
+			:venueThreePrice => survey.final_result[27],
+			:venueThreeRating => survey.final_result[28],
+			:venueThreeAddress => survey.final_result[29],
+			:venueThreeTip1 => survey.final_result[30],
+			:venueThreeTip2 => survey.final_result[31],
+			:venueThreeTip3 => survey.final_result[32],
+			:venueThreePhoto1 => survey.final_result[33],
+			:venueThreePhoto2 => survey.final_result[34],
+			:venueThreePhoto3 => survey.final_result[35],
+			:venueThreePhoto4 => survey.final_result[36],
+			:venueThreePhoto5 => survey.final_result[37],
+			:venueThreePhoto6 => survey.final_result[38],
 		}
 		
 	end

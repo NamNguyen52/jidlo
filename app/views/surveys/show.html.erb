@@ -10,6 +10,8 @@ window.onload = function(){ apiTimer();};
   <h5>Will search in the <%= @info.location %> area</h5>
 <% end %>
 
+
+
 <% if @survey1 %>
 <%= form_for(:response, url: crunch_path, method: :post) do |question| %>
   <div class="container" id="survey1-container">
@@ -51,8 +53,8 @@ window.onload = function(){ apiTimer();};
   <h2 class="title">Survey 2</h2>
 
 
-
 <%= form_for(:responsetwo, url: crunchtwo_path, method: :post) do |f| %>
+<<<<<<< HEAD
   <div class="container">
     <div class="col-md-4">
       <p id="ven1" style="color:red"></p>
@@ -125,6 +127,79 @@ window.onload = function(){ apiTimer();};
   </div>
     </div>      
   </div> 
+=======
+   
+
+<div id="container">
+  <div id="cube" class="animate">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+
+<br/><br/><br/><br/><br/><br/><br/><br/>
+
+  <p id="ven1" style="color:red"></p> 
+  <p id="ven1Price" style="color:red"></p> 
+  <p id="ven1Rating" style="color:red"></p>
+  <p id="ven1Address" style="color:red"></p> 
+  <p id="ven1Tip1" style="color:red"></p>  
+  <p id="ven1Tip2" style="color:red"></p> 
+  <p id="ven1Tip3" style="color:red"></p>      
+  <%= f.check_box :restaurant, {}, "venueone", false %> <br/>
+
+<br/><br/><br/><br/><br/><br/><br/><br/>
+
+<div id="container">
+  <div id="cube1" class="animate">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+
+<br/><br/><br/><br/><br/><br/><br/><br/>
+
+  <p id="ven2" style="color:red"></p> 
+  <p id="ven2Price" style="color:red"></p> 
+  <p id="ven2Rating" style="color:red"></p> 
+  <p id="ven2Address" style="color:red"></p> 
+  <p id="ven2Tip1" style="color:red"></p> 
+  <p id="ven2Tip2" style="color:red"></p> 
+  <p id="ven2Tip3" style="color:red"></p>      
+  <%= f.check_box :restaurant, {}, "venuetwo", false %> <br/>
+
+<br/><br/><br/><br/><br/><br/><br/><br/>
+
+<div id="container">
+  <div id="cube2" class="animate">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+
+<br/><br/><br/><br/><br/><br/><br/><br/>
+
+  <p id="ven3" style="color:red"></p>  
+  <p id="ven3Price" style="color:red"></p>  
+  <p id="ven3Rating" style="color:red"></p> 
+  <p id="ven3Address" style="color:red"></p>  
+  <p id="ven3Tip1" style="color:red"></p>  
+  <p id="ven3Tip2" style="color:red"></p>  
+  <p id="ven3Tip3" style="color:red"></p>      
+  <%= f.check_box :restaurant, {}, "venuethree", false %> <br/>
+>>>>>>> 43cf91ad54f8287b70f86a6b49b4e28d6a1cd8b5
 
     
   <%= f.submit "Submit This B!" %>
