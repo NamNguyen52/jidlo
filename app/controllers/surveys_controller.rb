@@ -36,7 +36,7 @@ class SurveysController < ApplicationController
 		survey.venue_three = []
 		survey.save
 		survey.numbers
-
+		
 		@link = "http://glacial-atoll-7506.herokuapp.com/survey_link/#{uniqueid}"
 
 		account_sid = 'ACc81c5abf7e87ff004ebaa870388e0620' 
