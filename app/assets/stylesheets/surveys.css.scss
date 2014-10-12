@@ -2,741 +2,77 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+//.surv {
+//	display: none;
+//}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* STYLING FOR ALL 3 CUBES ON SHOW PAGE */
-
-
-body {
-     margin-top: 125px;
- }
-
-@-moz-keyframes spinningH {
-  from {
-    -moz-transform: rotateX(0deg) rotateY(0deg);
-  }
-  to{
-    -moz-transform: rotateX(360deg) rotateY(360deg);
-  }
+img {
+	width: 100%;
+	height: 100%;
 }
 
-@-webkit-keyframes spinningH {
-  from {
-    -webkit-transform: rotateX(0deg) rotateY(0deg);
-  }
-  to{
-    -webkit-transform: rotateX(360deg) rotateY(360deg);
-  }
+.grid figure {
+	position: relative;
+	z-index: 1;
+	display: inline-block;
+	overflow: hidden;
+	margin: -0.135em;
+	width: 33.333%;
+	height: 400px;
+	width: 100%;
+	background: #3085a3;
+	text-align: center;
+	cursor: pointer;
 }
 
-@-o-keyframes spinningH {
-  from {
-    -o-transform: rotateX(0deg) rotateY(0deg);
-  }
-  to{
-    -o-transform: rotateX(360deg) rotateY(360deg);
-  }
+.grid figure img {
+	position: relative;
+	display: block;
+	min-height: 100%;
+	opacity: 0.8;
 }
 
-@-ms-keyframes spinningH {
-  from {
-    -ms-transform: rotateX(0deg) rotateY(0deg);
-  }
-  to{
-    -ms-transform: rotateX(360deg) rotateY(360deg);
-  }
+.grid figure figcaption {
+	padding: 2em;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 1.25em;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
 }
 
-@keyframes spinningH {
-  from {
-    transform: rotateX(0deg) rotateY(0deg);
-  }
-  to{
-    transform: rotateX(360deg) rotateY(360deg);
-  }
+.grid figure figcaption::before,
+.grid figure figcaption::after {
+	pointer-events: none;
 }
 
- #container {
-  -webkit-perspective : 1000px;
-  -moz-perspective    : 1000px;
-  -o-perspective      : 1000px;
-  -ms-perspective     : 1000px;
-  perspective         : 1000px;
-
-  -webkit-perspective-origin  : 50% 50%;
-  -moz-perspective-origin     : 50% 50%;
-  -moz-transform-origin       : 50% 50%;
-  -o-perspective-origin       : 50% 50%;
-  -ms-perspective-origin      : 50% 50%;
-  perspective-origin          : 50% 50%;
-
-  float: right;
-  margin-right: 250px;
-
- }
-
-.animate {
-  -webkit-animation : spinningH 16s infinite linear;
-  -moz-animation    : spinningH 16s infinite linear;
-  -o-animation      : spinningH 16s infinite linear;
-  -ms-animation     : spinningH 16s infinite linear;
-  animation         : spinningH 16s infinite linear;
+.grid figure figcaption,
+.grid figure a {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 }
 
-<<<<<<< HEAD
 /*Sectionf for 3 horizontal boxes on the homepage*/
 
 figure.effect-dexter {
 	/*background: -webkit-linear-gradient(top, rgba(37,141,200,1) 0%, rgba(104,60,19,1) 100%);*/
 	/*background: linear-gradient(to bottom, rgba(37,141,200,1) 0%,rgba(104,60,19,1) 100%); */
 	background: none;	
-=======
-
-/* CUBE 1 STYLING */
-
-
-#cube {
-  position: relative;
-  margin: 0 auto;
-  height: 160px;
-  width: 160px;
-
-  -webkit-transition  : -webkit-transform 2s linear;
-  -moz-transition     : -moz-transform 2s linear;
-  -o-transition       : -o-transform 2s linear;
-  -ms-transition      : -ms-transform 2s linear;
-  transition          : transform 2s linear;
-
-  -webkit-transform-style : preserve-3d;
-  -moz-transform-style    : preserve-3d;
-  -o-transform-style      : preserve-3d;
-  -ms-transform-style     : preserve-3d;
-  transform-style         : preserve-3d;
 }
 
-#cube>div {
-  position: absolute;
-  height: 160px;
-  width: 160px;
-  padding: 120px;
-  opacity: 0.9;
-  background-position:center center;
+figure.effect-dexter img {
+	-webkit-transition: opacity 0.35s;
+	transition: opacity 0.35s;
 }
 
-#cube div:nth-child(1) {
-  -webkit-transform : translateZ(120px);
-  -moz-transform    : translateZ(120px);
-  -o-transform      : translateZ(120px);
-  -ms-transform     : translateZ(120px);
-  transform         : translateZ(120px);
-  background-color  : #2E272F;
-  background-image: url(/assets/image1.jpg);
-  background-repeat : no-repeat;
+figure.effect-dexter:hover img {
+	opacity: 0.4;
 }
 
-#cube div:nth-child(2) {
-  -webkit-transform : rotateY(90deg) translateZ(120px);
-  -moz-transform    : rotateY(90deg) translateZ(120px);
-  -o-transform      : rotateY(90deg) translateZ(120px);
-  -ms-transform     : rotateY(90deg) translateZ(120px);
-  transform         : rotateY(90deg) translateZ(120px);
-  background-color  : #2D3A4D;
-  background-image: url(/assets/image1.jpg);
-  background-repeat : no-repeat;
-}
-
-#cube div:nth-child(3) {
-  -webkit-transform : rotateY(180deg) translateZ(120px);
-  -moz-transform    : rotateY(180deg) translateZ(120px);
-  -o-transform      : rotateY(180deg) translateZ(120px);
-  -ms-transform     : rotateY(180deg) translateZ(120px);
-  transform         : rotateY(180deg) translateZ(120px);
-  background-color  : #2D1C12;
-  background-image: url(/assets/image1.jpg);
-  background-repeat : no-repeat;
-}
-
-#cube div:nth-child(4) {
-  -webkit-transform : rotateY(-90deg) translateZ(120px);
-  -moz-transform    : rotateY(-90deg) translateZ(120px);
-  -o-transform      : rotateY(-90deg) translateZ(120px);
-  -ms-transform     : rotateY(-90deg) translateZ(120px);
-  transform         : rotateY(-90deg) translateZ(120px);
-  background-color  : #693C1F;
-  background-image  : url(/assets/image1.jpg);
-  background-repeat : no-repeat;
-}
-
-#cube div:nth-child(5) {
-  -webkit-transform : rotateX(-90deg) translateZ(120px) rotate(180deg);
-  -moz-transform    : rotateX(-90deg) translateZ(120px) rotate(180deg);
-  -o-transform      : rotateX(-90deg) translateZ(120px) rotate(180deg);
-  -ms-transform     : rotateX(-90deg) translateZ(120px) rotate(180deg);
-  transform         : rotateX(-90deg) translateZ(120px) rotate(180deg);
-  background-color  : #955122;
-  background-image  : url(/assets/image1.jpg);
-  background-repeat :no-repeat;
-}
-
-#cube div:nth-child(6)  {
-  -webkit-transform : rotateX(90deg) translateZ(120px);
-  -moz-transform    : rotateX(90deg) translateZ(120px);
-  -o-transform      : rotateX(90deg) translateZ(120px);
-  -ms-transform     : rotateX(90deg) translateZ(120px);
-  transform         : rotateX(90deg) translateZ(120px);
-  background-color  : #E34C26;
-  background-image: url(/assets/image1.jpg);
-  background-repeat :no-repeat;
-  text-align:center;  
-}
-
-
-
-/* CUBE 2 STYLING */
-
-
-#cube1 {
-  position: relative;
-  margin: 0 auto;
-  height: 160px;
-  width: 160px;
-
-  -webkit-transition  : -webkit-transform 2s linear;
-  -moz-transition     : -moz-transform 2s linear;
-  -o-transition       : -o-transform 2s linear;
-  -ms-transition      : -ms-transform 2s linear;
-  transition          : transform 2s linear;
-
-  -webkit-transform-style : preserve-3d;
-  -moz-transform-style    : preserve-3d;
-  -o-transform-style      : preserve-3d;
-  -ms-transform-style     : preserve-3d;
-  transform-style         : preserve-3d;
-}
-
-#cube1>div {
-  position: absolute;
-  height: 160px;
-  width: 160px;
-  padding: 120px;
-  opacity: 0.9;
-  background-position:center center;
-}
-
-#cube1 div:nth-child(1) {
-  -webkit-transform : translateZ(120px);
-  -moz-transform    : translateZ(120px);
-  -o-transform      : translateZ(120px);
-  -ms-transform     : translateZ(120px);
-  transform         : translateZ(120px);
-  background-color  : #2E272F;
-  background-image: url(/assets/image1.jpg);
-  background-repeat : no-repeat;
-}
-
-#cube1 div:nth-child(2) {
-  -webkit-transform : rotateY(90deg) translateZ(120px);
-  -moz-transform    : rotateY(90deg) translateZ(120px);
-  -o-transform      : rotateY(90deg) translateZ(120px);
-  -ms-transform     : rotateY(90deg) translateZ(120px);
-  transform         : rotateY(90deg) translateZ(120px);
-  background-color  : #2D3A4D;
-  background-image: url(/assets/image1.jpg);
-  background-repeat : no-repeat;
-}
-
-#cube1 div:nth-child(3) {
-  -webkit-transform : rotateY(180deg) translateZ(120px);
-  -moz-transform    : rotateY(180deg) translateZ(120px);
-  -o-transform      : rotateY(180deg) translateZ(120px);
-  -ms-transform     : rotateY(180deg) translateZ(120px);
-  transform         : rotateY(180deg) translateZ(120px);
-  background-color  : #2D1C12;
-  background-image: url(/assets/image1.jpg);
-  background-repeat : no-repeat;
-}
-
-#cube1 div:nth-child(4) {
-  -webkit-transform : rotateY(-90deg) translateZ(120px);
-  -moz-transform    : rotateY(-90deg) translateZ(120px);
-  -o-transform      : rotateY(-90deg) translateZ(120px);
-  -ms-transform     : rotateY(-90deg) translateZ(120px);
-  transform         : rotateY(-90deg) translateZ(120px);
-  background-color  : #693C1F;
-  background-image  : url(/assets/image1.jpg);
-  background-repeat : no-repeat;
-}
-
-#cube1 div:nth-child(5) {
-  -webkit-transform : rotateX(-90deg) translateZ(120px) rotate(180deg);
-  -moz-transform    : rotateX(-90deg) translateZ(120px) rotate(180deg);
-  -o-transform      : rotateX(-90deg) translateZ(120px) rotate(180deg);
-  -ms-transform     : rotateX(-90deg) translateZ(120px) rotate(180deg);
-  transform         : rotateX(-90deg) translateZ(120px) rotate(180deg);
-  background-color  : #955122;
-  background-image  : url(/assets/image1.jpg);
-  background-repeat :no-repeat;
->>>>>>> 43cf91ad54f8287b70f86a6b49b4e28d6a1cd8b5
-}
-
-#cube1 div:nth-child(6)  {
-  -webkit-transform : rotateX(90deg) translateZ(120px);
-  -moz-transform    : rotateX(90deg) translateZ(120px);
-  -o-transform      : rotateX(90deg) translateZ(120px);
-  -ms-transform     : rotateX(90deg) translateZ(120px);
-  transform         : rotateX(90deg) translateZ(120px);
-  background-color  : #E34C26;
-  background-image: url(/assets/image1.jpg);
-  background-repeat :no-repeat;
-  text-align:center;  
-}
-
-
-
-/*  CUBE 3 STYLING */
-
-#cube2 {
-  position: relative;
-  margin: 0 auto;
-  height: 160px;
-  width: 160px;
-
-  -webkit-transition  : -webkit-transform 2s linear;
-  -moz-transition     : -moz-transform 2s linear;
-  -o-transition       : -o-transform 2s linear;
-  -ms-transition      : -ms-transform 2s linear;
-  transition          : transform 2s linear;
-
-  -webkit-transform-style : preserve-3d;
-  -moz-transform-style    : preserve-3d;
-  -o-transform-style      : preserve-3d;
-  -ms-transform-style     : preserve-3d;
-  transform-style         : preserve-3d;
-}
-
-#cube2>div {
-  position: absolute;
-  height: 160px;
-  width: 160px;
-  padding: 120px;
-  opacity: 0.9;
-  background-position:center center;
-}
-
-<<<<<<< HEAD
 figure.effect-dexter figcaption::after {
 	position: absolute;
 	right: 30px;
@@ -751,60 +87,31 @@ figure.effect-dexter figcaption::after {
 	-webkit-transform: translate3d(0,-100%,0);
 	transform: translate3d(0,-100%,0);
 	color: #FAEBD7;
-=======
-#cube2 div:nth-child(1) {
-  -webkit-transform : translateZ(120px);
-  -moz-transform    : translateZ(120px);
-  -o-transform      : translateZ(120px);
-  -ms-transform     : translateZ(120px);
-  transform         : translateZ(120px);
-  background-color  : #2E272F;
-  background-image: url(/assets/image1.jpg);
-  background-repeat : no-repeat;
->>>>>>> 43cf91ad54f8287b70f86a6b49b4e28d6a1cd8b5
 }
 
-#cube2 div:nth-child(2) {
-  -webkit-transform : rotateY(90deg) translateZ(120px);
-  -moz-transform    : rotateY(90deg) translateZ(120px);
-  -o-transform      : rotateY(90deg) translateZ(120px);
-  -ms-transform     : rotateY(90deg) translateZ(120px);
-  transform         : rotateY(90deg) translateZ(120px);
-  background-color  : #2D3A4D;
-  background-image: url(/assets/image1.jpg);
-  background-repeat : no-repeat;
+figure.effect-dexter:hover figcaption::after {
+	-webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
 }
 
-<<<<<<< HEAD
 figure.effect-dexter figcaption {
 	padding: 3em;
 	text-align: left;
 	color: #FAEBD7;
-=======
-#cube2 div:nth-child(3) {
-  -webkit-transform : rotateY(180deg) translateZ(120px);
-  -moz-transform    : rotateY(180deg) translateZ(120px);
-  -o-transform      : rotateY(180deg) translateZ(120px);
-  -ms-transform     : rotateY(180deg) translateZ(120px);
-  transform         : rotateY(180deg) translateZ(120px);
-  background-color  : #2D1C12;
-  background-image: url(/assets/image1.jpg);
-  background-repeat : no-repeat;
->>>>>>> 43cf91ad54f8287b70f86a6b49b4e28d6a1cd8b5
 }
 
-#cube2 div:nth-child(4) {
-  -webkit-transform : rotateY(-90deg) translateZ(120px);
-  -moz-transform    : rotateY(-90deg) translateZ(120px);
-  -o-transform      : rotateY(-90deg) translateZ(120px);
-  -ms-transform     : rotateY(-90deg) translateZ(120px);
-  transform         : rotateY(-90deg) translateZ(120px);
-  background-color  : #693C1F;
-  background-image  : url(/assets/image1.jpg);
-  background-repeat : no-repeat;
+figure.effect-dexter p {
+	position: absolute;
+	right: 60px;
+	bottom: 60px;
+	left: 60px;
+	opacity: 0;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transform: translate3d(0,-100px,0);
+	transform: translate3d(0,-100px,0);
 }
 
-<<<<<<< HEAD
 figure.effect-dexter:hover p {
 	opacity: 1;
 	-webkit-transform: translate3d(0,0,0);
@@ -1093,7 +400,361 @@ h5 {
 #survey1-submit {
 	margin-top: 100px;
 }
-=======
+
+
+/* STYLING FOR ALL 3 CUBES ON SHOW PAGE */
+
+
+body {
+     margin-top: 125px;
+ }
+
+@-moz-keyframes spinningH {
+  from {
+    -moz-transform: rotateX(0deg) rotateY(0deg);
+  }
+  to{
+    -moz-transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+
+@-webkit-keyframes spinningH {
+  from {
+    -webkit-transform: rotateX(0deg) rotateY(0deg);
+  }
+  to{
+    -webkit-transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+
+@-o-keyframes spinningH {
+  from {
+    -o-transform: rotateX(0deg) rotateY(0deg);
+  }
+  to{
+    -o-transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+
+@-ms-keyframes spinningH {
+  from {
+    -ms-transform: rotateX(0deg) rotateY(0deg);
+  }
+  to{
+    -ms-transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+
+@keyframes spinningH {
+  from {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  to{
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+
+ #container {
+  -webkit-perspective : 1000px;
+  -moz-perspective    : 1000px;
+  -o-perspective      : 1000px;
+  -ms-perspective     : 1000px;
+  perspective         : 1000px;
+
+  -webkit-perspective-origin  : 50% 50%;
+  -moz-perspective-origin     : 50% 50%;
+  -moz-transform-origin       : 50% 50%;
+  -o-perspective-origin       : 50% 50%;
+  -ms-perspective-origin      : 50% 50%;
+  perspective-origin          : 50% 50%;
+
+  float: right;
+  margin-right: 250px;
+
+ }
+
+.animate {
+  -webkit-animation : spinningH 16s infinite linear;
+  -moz-animation    : spinningH 16s infinite linear;
+  -o-animation      : spinningH 16s infinite linear;
+  -ms-animation     : spinningH 16s infinite linear;
+  animation         : spinningH 16s infinite linear;
+}
+
+/* CUBE 1 STYLING */
+
+
+#cube {
+  position: relative;
+  margin: 0 auto;
+  height: 160px;
+  width: 160px;
+
+  -webkit-transition  : -webkit-transform 2s linear;
+  -moz-transition     : -moz-transform 2s linear;
+  -o-transition       : -o-transform 2s linear;
+  -ms-transition      : -ms-transform 2s linear;
+  transition          : transform 2s linear;
+
+  -webkit-transform-style : preserve-3d;
+  -moz-transform-style    : preserve-3d;
+  -o-transform-style      : preserve-3d;
+  -ms-transform-style     : preserve-3d;
+  transform-style         : preserve-3d;
+}
+
+#cube>div {
+  position: absolute;
+  height: 160px;
+  width: 160px;
+  padding: 120px;
+  opacity: 0.9;
+  background-position:center center;
+}
+
+#cube div:nth-child(1) {
+  -webkit-transform : translateZ(120px);
+  -moz-transform    : translateZ(120px);
+  -o-transform      : translateZ(120px);
+  -ms-transform     : translateZ(120px);
+  transform         : translateZ(120px);
+  background-color  : #2E272F;
+  background-image: url(/assets/image1.jpg);
+  background-repeat : no-repeat;
+}
+
+#cube div:nth-child(2) {
+  -webkit-transform : rotateY(90deg) translateZ(120px);
+  -moz-transform    : rotateY(90deg) translateZ(120px);
+  -o-transform      : rotateY(90deg) translateZ(120px);
+  -ms-transform     : rotateY(90deg) translateZ(120px);
+  transform         : rotateY(90deg) translateZ(120px);
+  background-color  : #2D3A4D;
+  background-image: url(/assets/image1.jpg);
+  background-repeat : no-repeat;
+}
+
+#cube div:nth-child(3) {
+  -webkit-transform : rotateY(180deg) translateZ(120px);
+  -moz-transform    : rotateY(180deg) translateZ(120px);
+  -o-transform      : rotateY(180deg) translateZ(120px);
+  -ms-transform     : rotateY(180deg) translateZ(120px);
+  transform         : rotateY(180deg) translateZ(120px);
+  background-color  : #2D1C12;
+  background-image: url(/assets/image1.jpg);
+  background-repeat : no-repeat;
+}
+
+#cube div:nth-child(4) {
+  -webkit-transform : rotateY(-90deg) translateZ(120px);
+  -moz-transform    : rotateY(-90deg) translateZ(120px);
+  -o-transform      : rotateY(-90deg) translateZ(120px);
+  -ms-transform     : rotateY(-90deg) translateZ(120px);
+  transform         : rotateY(-90deg) translateZ(120px);
+  background-color  : #693C1F;
+  background-image  : url(/assets/image1.jpg);
+  background-repeat : no-repeat;
+}
+
+#cube div:nth-child(5) {
+  -webkit-transform : rotateX(-90deg) translateZ(120px) rotate(180deg);
+  -moz-transform    : rotateX(-90deg) translateZ(120px) rotate(180deg);
+  -o-transform      : rotateX(-90deg) translateZ(120px) rotate(180deg);
+  -ms-transform     : rotateX(-90deg) translateZ(120px) rotate(180deg);
+  transform         : rotateX(-90deg) translateZ(120px) rotate(180deg);
+  background-color  : #955122;
+  background-image  : url(/assets/image1.jpg);
+  background-repeat :no-repeat;
+}
+
+#cube div:nth-child(6)  {
+  -webkit-transform : rotateX(90deg) translateZ(120px);
+  -moz-transform    : rotateX(90deg) translateZ(120px);
+  -o-transform      : rotateX(90deg) translateZ(120px);
+  -ms-transform     : rotateX(90deg) translateZ(120px);
+  transform         : rotateX(90deg) translateZ(120px);
+  background-color  : #E34C26;
+  background-image: url(/assets/image1.jpg);
+  background-repeat :no-repeat;
+  text-align:center;  
+}
+
+
+
+/* CUBE 2 STYLING */
+
+
+#cube1 {
+  position: relative;
+  margin: 0 auto;
+  height: 160px;
+  width: 160px;
+
+  -webkit-transition  : -webkit-transform 2s linear;
+  -moz-transition     : -moz-transform 2s linear;
+  -o-transition       : -o-transform 2s linear;
+  -ms-transition      : -ms-transform 2s linear;
+  transition          : transform 2s linear;
+
+  -webkit-transform-style : preserve-3d;
+  -moz-transform-style    : preserve-3d;
+  -o-transform-style      : preserve-3d;
+  -ms-transform-style     : preserve-3d;
+  transform-style         : preserve-3d;
+}
+
+#cube1>div {
+  position: absolute;
+  height: 160px;
+  width: 160px;
+  padding: 120px;
+  opacity: 0.9;
+  background-position:center center;
+}
+
+#cube1 div:nth-child(1) {
+  -webkit-transform : translateZ(120px);
+  -moz-transform    : translateZ(120px);
+  -o-transform      : translateZ(120px);
+  -ms-transform     : translateZ(120px);
+  transform         : translateZ(120px);
+  background-color  : #2E272F;
+  background-image: url(/assets/image1.jpg);
+  background-repeat : no-repeat;
+}
+
+#cube1 div:nth-child(2) {
+  -webkit-transform : rotateY(90deg) translateZ(120px);
+  -moz-transform    : rotateY(90deg) translateZ(120px);
+  -o-transform      : rotateY(90deg) translateZ(120px);
+  -ms-transform     : rotateY(90deg) translateZ(120px);
+  transform         : rotateY(90deg) translateZ(120px);
+  background-color  : #2D3A4D;
+  background-image: url(/assets/image1.jpg);
+  background-repeat : no-repeat;
+}
+
+#cube1 div:nth-child(3) {
+  -webkit-transform : rotateY(180deg) translateZ(120px);
+  -moz-transform    : rotateY(180deg) translateZ(120px);
+  -o-transform      : rotateY(180deg) translateZ(120px);
+  -ms-transform     : rotateY(180deg) translateZ(120px);
+  transform         : rotateY(180deg) translateZ(120px);
+  background-color  : #2D1C12;
+  background-image: url(/assets/image1.jpg);
+  background-repeat : no-repeat;
+}
+
+#cube1 div:nth-child(4) {
+  -webkit-transform : rotateY(-90deg) translateZ(120px);
+  -moz-transform    : rotateY(-90deg) translateZ(120px);
+  -o-transform      : rotateY(-90deg) translateZ(120px);
+  -ms-transform     : rotateY(-90deg) translateZ(120px);
+  transform         : rotateY(-90deg) translateZ(120px);
+  background-color  : #693C1F;
+  background-image  : url(/assets/image1.jpg);
+  background-repeat : no-repeat;
+}
+
+#cube1 div:nth-child(5) {
+  -webkit-transform : rotateX(-90deg) translateZ(120px) rotate(180deg);
+  -moz-transform    : rotateX(-90deg) translateZ(120px) rotate(180deg);
+  -o-transform      : rotateX(-90deg) translateZ(120px) rotate(180deg);
+  -ms-transform     : rotateX(-90deg) translateZ(120px) rotate(180deg);
+  transform         : rotateX(-90deg) translateZ(120px) rotate(180deg);
+  background-color  : #955122;
+  background-image  : url(/assets/image1.jpg);
+  background-repeat :no-repeat;
+}
+
+#cube1 div:nth-child(6)  {
+  -webkit-transform : rotateX(90deg) translateZ(120px);
+  -moz-transform    : rotateX(90deg) translateZ(120px);
+  -o-transform      : rotateX(90deg) translateZ(120px);
+  -ms-transform     : rotateX(90deg) translateZ(120px);
+  transform         : rotateX(90deg) translateZ(120px);
+  background-color  : #E34C26;
+  background-image: url(/assets/image1.jpg);
+  background-repeat :no-repeat;
+  text-align:center;  
+}
+
+
+
+/*  CUBE 3 STYLING */
+
+#cube2 {
+  position: relative;
+  margin: 0 auto;
+  height: 160px;
+  width: 160px;
+
+  -webkit-transition  : -webkit-transform 2s linear;
+  -moz-transition     : -moz-transform 2s linear;
+  -o-transition       : -o-transform 2s linear;
+  -ms-transition      : -ms-transform 2s linear;
+  transition          : transform 2s linear;
+
+  -webkit-transform-style : preserve-3d;
+  -moz-transform-style    : preserve-3d;
+  -o-transform-style      : preserve-3d;
+  -ms-transform-style     : preserve-3d;
+  transform-style         : preserve-3d;
+}
+
+#cube2>div {
+  position: absolute;
+  height: 160px;
+  width: 160px;
+  padding: 120px;
+  opacity: 0.9;
+  background-position:center center;
+}
+
+#cube2 div:nth-child(1) {
+  -webkit-transform : translateZ(120px);
+  -moz-transform    : translateZ(120px);
+  -o-transform      : translateZ(120px);
+  -ms-transform     : translateZ(120px);
+  transform         : translateZ(120px);
+  background-color  : #2E272F;
+  background-image: url(/assets/image1.jpg);
+  background-repeat : no-repeat;
+}
+
+#cube2 div:nth-child(2) {
+  -webkit-transform : rotateY(90deg) translateZ(120px);
+  -moz-transform    : rotateY(90deg) translateZ(120px);
+  -o-transform      : rotateY(90deg) translateZ(120px);
+  -ms-transform     : rotateY(90deg) translateZ(120px);
+  transform         : rotateY(90deg) translateZ(120px);
+  background-color  : #2D3A4D;
+  background-image: url(/assets/image1.jpg);
+  background-repeat : no-repeat;
+}
+
+#cube2 div:nth-child(3) {
+  -webkit-transform : rotateY(180deg) translateZ(120px);
+  -moz-transform    : rotateY(180deg) translateZ(120px);
+  -o-transform      : rotateY(180deg) translateZ(120px);
+  -ms-transform     : rotateY(180deg) translateZ(120px);
+  transform         : rotateY(180deg) translateZ(120px);
+  background-color  : #2D1C12;
+  background-image: url(/assets/image1.jpg);
+  background-repeat : no-repeat;
+}
+
+#cube2 div:nth-child(4) {
+  -webkit-transform : rotateY(-90deg) translateZ(120px);
+  -moz-transform    : rotateY(-90deg) translateZ(120px);
+  -o-transform      : rotateY(-90deg) translateZ(120px);
+  -ms-transform     : rotateY(-90deg) translateZ(120px);
+  transform         : rotateY(-90deg) translateZ(120px);
+  background-color  : #693C1F;
+  background-image  : url(/assets/image1.jpg);
+  background-repeat : no-repeat;
+}
+
 #cube2 div:nth-child(5) {
   -webkit-transform : rotateX(-90deg) translateZ(120px) rotate(180deg);
   -moz-transform    : rotateX(-90deg) translateZ(120px) rotate(180deg);
@@ -1117,7 +778,3 @@ h5 {
   text-align:center;  
 }
 
-
-
-
->>>>>>> 43cf91ad54f8287b70f86a6b49b4e28d6a1cd8b5
