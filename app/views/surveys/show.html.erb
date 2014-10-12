@@ -10,6 +10,8 @@ window.onload = function(){ apiTimer();};
 <h3>Will search in the <%= @info.location %> area</h3>
 <% end %>
 
+
+
 <% if @survey1 %>
 <%= form_for(:response, url: crunch_path, method: :post) do |question| %>
 
@@ -35,9 +37,22 @@ window.onload = function(){ apiTimer();};
   <h1 id="title">Survey 2</h1>
 
 
-
 <%= form_for(:responsetwo, url: crunchtwo_path, method: :post) do |f| %>
    
+
+<div id="container">
+  <div id="cube" class="animate">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+
+<br/><br/><br/><br/><br/><br/><br/><br/>
+
   <p id="ven1" style="color:red"></p> 
   <p id="ven1Price" style="color:red"></p> 
   <p id="ven1Rating" style="color:red"></p>
@@ -47,6 +62,21 @@ window.onload = function(){ apiTimer();};
   <p id="ven1Tip3" style="color:red"></p>      
   <%= f.check_box :restaurant, {}, "venueone", false %> <br/>
 
+<br/><br/><br/><br/><br/><br/><br/><br/>
+
+<div id="container">
+  <div id="cube1" class="animate">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+
+<br/><br/><br/><br/><br/><br/><br/><br/>
+
   <p id="ven2" style="color:red"></p> 
   <p id="ven2Price" style="color:red"></p> 
   <p id="ven2Rating" style="color:red"></p> 
@@ -55,6 +85,21 @@ window.onload = function(){ apiTimer();};
   <p id="ven2Tip2" style="color:red"></p> 
   <p id="ven2Tip3" style="color:red"></p>      
   <%= f.check_box :restaurant, {}, "venuetwo", false %> <br/>
+
+<br/><br/><br/><br/><br/><br/><br/><br/>
+
+<div id="container">
+  <div id="cube2" class="animate">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+
+<br/><br/><br/><br/><br/><br/><br/><br/>
 
   <p id="ven3" style="color:red"></p>  
   <p id="ven3Price" style="color:red"></p>  

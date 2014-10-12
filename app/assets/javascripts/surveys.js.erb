@@ -16,6 +16,17 @@ var apiCall = function() {
 		$("p#ven1Tip1").text(data.venueOneTip1)
 		$("p#ven1Tip2").text(data.venueOneTip2)
 		$("p#ven1Tip3").text(data.venueOneTip3)
+		//$("#selected_post").attr('src', data.venueOnePhoto1)
+		$("#cube div:nth-child(1)").css('background-image', 'url(' + data.venueOnePhoto1 + ')');
+		$("#cube div:nth-child(2)").css('background-image', 'url(' + data.venueOnePhoto2 + ')');
+		$("#cube div:nth-child(3)").css('background-image', 'url(' + data.venueOnePhoto3 + ')');
+		$("#cube div:nth-child(4)").css('background-image', 'url(' + data.venueOnePhoto4 + ')');
+		$("#cube div:nth-child(5)").css('background-image', 'url(' + data.venueOnePhoto5 + ')');
+		$("#cube div:nth-child(6)").css('background-image', 'url(' + data.venueOnePhoto6 + ')');
+
+		//document.body.style.backgroundImage="url('http://images.dailytech.com/nimage/Ocean_Warming_Wide.png')";
+		//$body.css('background-image', "url('data.venueOnePhoto1')");
+		//$("p#ven1Photo1").text(data.venueOnePhoto1)
 
 		$("p#ven2").text(data.venueTwo)
 		$("p#ven2Price").text(data.venueTwoPrice)
@@ -24,6 +35,13 @@ var apiCall = function() {
 		$("p#ven2Tip1").text(data.venueTwoTip1)
 		$("p#ven2Tip2").text(data.venueTwoTip2)
 		$("p#ven2Tip3").text(data.venueTwoTip3)
+		$("#cube1 div:nth-child(1)").css('background-image', 'url(' + data.venueTwoPhoto1 + ')');
+		$("#cube1 div:nth-child(2)").css('background-image', 'url(' + data.venueTwoPhoto2 + ')');
+		$("#cube1 div:nth-child(3)").css('background-image', 'url(' + data.venueTwoPhoto3 + ')');
+		$("#cube1 div:nth-child(4)").css('background-image', 'url(' + data.venueTwoPhoto4 + ')');
+		$("#cube1 div:nth-child(5)").css('background-image', 'url(' + data.venueTwoPhoto5 + ')');
+		$("#cube1 div:nth-child(6)").css('background-image', 'url(' + data.venueTwoPhoto6 + ')');
+
 
 		$("p#ven3").text(data.venueThree)
 		$("p#ven3Price").text(data.venueThreePrice)
@@ -32,6 +50,12 @@ var apiCall = function() {
 		$("p#ven3Tip1").text(data.venueThreeTip1)
 		$("p#ven3Tip2").text(data.venueThreeTip2)
 		$("p#ven3Tip3").text(data.venueThreeTip3)
+		$("#cube2 div:nth-child(1)").css('background-image', 'url(' + data.venueThreePhoto1 + ')');
+		$("#cube2 div:nth-child(2)").css('background-image', 'url(' + data.venueThreePhoto2 + ')');
+		$("#cube2 div:nth-child(3)").css('background-image', 'url(' + data.venueThreePhoto3 + ')');
+		$("#cube2 div:nth-child(4)").css('background-image', 'url(' + data.venueThreePhoto4 + ')');
+		$("#cube2 div:nth-child(5)").css('background-image', 'url(' + data.venueThreePhoto5 + ')');
+		$("#cube2 div:nth-child(6)").css('background-image', 'url(' + data.venueThreePhoto6 + ')');
 
 	});
 
@@ -43,6 +67,7 @@ var apiCall = function() {
 		
 	});
 
+		
 
 };
 
