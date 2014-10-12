@@ -4,6 +4,8 @@ class SurveysController < ApplicationController
 	respond_to :json
 
 	def index
+		@home = true
+		@linkgen = false
 	end
 
 	def show
@@ -16,6 +18,8 @@ class SurveysController < ApplicationController
 	end
 
 	def create
+		@home = false
+		@linkgen = true
 		people = params[:new_survey][:people]
 		name = params[:new_survey][:name]
 		location = params[:new_survey][:location]
