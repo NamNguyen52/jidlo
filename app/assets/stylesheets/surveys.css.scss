@@ -487,8 +487,8 @@ body {
 #cube {
   position: relative;
   margin: 0 auto;
-  height: 160px;
-  width: 160px;
+  height: 140px;
+  width: 140px;
 
   -webkit-transition  : -webkit-transform 2s linear;
   -moz-transition     : -moz-transform 2s linear;
@@ -505,74 +505,73 @@ body {
 
 #cube>div {
   position: absolute;
-  height: 160px;
-  width: 160px;
-  padding: 120px;
+  height: 140px;
+  width: 140px;
+  padding: 100px;
   opacity: 0.9;
   background-position:center center;
 }
 
 #cube div:nth-child(1) {
-  -webkit-transform : translateZ(120px);
-  -moz-transform    : translateZ(120px);
-  -o-transform      : translateZ(120px);
-  -ms-transform     : translateZ(120px);
-  transform         : translateZ(120px);
+  -webkit-transform : translateZ(100px);
+  -moz-transform    : translateZ(100px);
+  -o-transform      : translateZ(100px);
+  -ms-transform     : translateZ(100px);
+  transform         : translateZ(100px);
   background-color  : #2E272F;
   background-image: url(/assets/image1.jpg);
   background-repeat : no-repeat;
 }
 
 #cube div:nth-child(2) {
-  -webkit-transform : rotateY(90deg) translateZ(120px);
-  -moz-transform    : rotateY(90deg) translateZ(120px);
-  -o-transform      : rotateY(90deg) translateZ(120px);
-  -ms-transform     : rotateY(90deg) translateZ(120px);
-  transform         : rotateY(90deg) translateZ(120px);
+  -webkit-transform : rotateY(90deg) translateZ(100px);
+  -moz-transform    : rotateY(90deg) translateZ(100px);
+  -o-transform      : rotateY(90deg) translateZ(100px);
+  -ms-transform     : rotateY(90deg) translateZ(100px);
+  transform         : rotateY(90deg) translateZ(100px);
   background-color  : #2D3A4D;
   background-image: url(/assets/image1.jpg);
   background-repeat : no-repeat;
 }
 
 #cube div:nth-child(3) {
-  -webkit-transform : rotateY(180deg) translateZ(120px);
-  -moz-transform    : rotateY(180deg) translateZ(120px);
-  -o-transform      : rotateY(180deg) translateZ(120px);
-  -ms-transform     : rotateY(180deg) translateZ(120px);
-  transform         : rotateY(180deg) translateZ(120px);
+  -webkit-transform : rotateY(180deg) translateZ(100px);
+  -moz-transform    : rotateY(180deg) translateZ(100px);
+  -o-transform      : rotateY(180deg) translateZ(100px);
+  -ms-transform     : rotateY(180deg) translateZ(100px);
+  transform         : rotateY(180deg) translateZ(100px);
   background-color  : #2D1C12;
   background-image: url(/assets/image1.jpg);
   background-repeat : no-repeat;
 }
 
 #cube div:nth-child(4) {
-  -webkit-transform : rotateY(-90deg) translateZ(120px);
-  -moz-transform    : rotateY(-90deg) translateZ(120px);
-  -o-transform      : rotateY(-90deg) translateZ(120px);
-  -ms-transform     : rotateY(-90deg) translateZ(120px);
-  transform         : rotateY(-90deg) translateZ(120px);
+  -webkit-transform : rotateY(-90deg) translateZ(100px);
+  -moz-transform    : rotateY(-90deg) translateZ(100px);
+  -o-transform      : rotateY(-90deg) translateZ(100px);
+  -ms-transform     : rotateY(-90deg) translateZ(100px);
+  transform         : rotateY(-90deg) translateZ(100px);
   background-color  : #693C1F;
   background-image  : url(/assets/image1.jpg);
   background-repeat : no-repeat;
 }
-
 #cube div:nth-child(5) {
-  -webkit-transform : rotateX(-90deg) translateZ(120px) rotate(180deg);
-  -moz-transform    : rotateX(-90deg) translateZ(120px) rotate(180deg);
-  -o-transform      : rotateX(-90deg) translateZ(120px) rotate(180deg);
-  -ms-transform     : rotateX(-90deg) translateZ(120px) rotate(180deg);
-  transform         : rotateX(-90deg) translateZ(120px) rotate(180deg);
+  -webkit-transform : rotateX(-90deg) translateZ(100px) rotate(180deg);
+  -moz-transform    : rotateX(-90deg) translateZ(100px) rotate(180deg);
+  -o-transform      : rotateX(-90deg) translateZ(100px) rotate(180deg);
+  -ms-transform     : rotateX(-90deg) translateZ(100px) rotate(180deg);
+  transform         : rotateX(-90deg) translateZ(100px) rotate(180deg);
   background-color  : #955122;
   background-image  : url(/assets/image1.jpg);
   background-repeat :no-repeat;
 }
 
 #cube div:nth-child(6)  {
-  -webkit-transform : rotateX(90deg) translateZ(120px);
-  -moz-transform    : rotateX(90deg) translateZ(120px);
-  -o-transform      : rotateX(90deg) translateZ(120px);
-  -ms-transform     : rotateX(90deg) translateZ(120px);
-  transform         : rotateX(90deg) translateZ(120px);
+  -webkit-transform : rotateX(90deg) translateZ(100px);
+  -moz-transform    : rotateX(90deg) translateZ(100px);
+  -o-transform      : rotateX(90deg) translateZ(100px);
+  -ms-transform     : rotateX(90deg) translateZ(100px);
+  transform         : rotateX(90deg) translateZ(100px);
   background-color  : #E34C26;
   background-image: url(/assets/image1.jpg);
   background-repeat :no-repeat;
@@ -587,8 +586,8 @@ body {
 #cube1 {
   position: relative;
   margin: 0 auto;
-  height: 160px;
-  width: 160px;
+  height: 140px;
+  width: 140px;
 
   -webkit-transition  : -webkit-transform 2s linear;
   -moz-transition     : -moz-transform 2s linear;
@@ -605,74 +604,74 @@ body {
 
 #cube1>div {
   position: absolute;
-  height: 160px;
-  width: 160px;
-  padding: 120px;
+  height: 140px;
+  width: 140px;
+  padding: 100px;
   opacity: 0.9;
   background-position:center center;
 }
 
 #cube1 div:nth-child(1) {
-  -webkit-transform : translateZ(120px);
-  -moz-transform    : translateZ(120px);
-  -o-transform      : translateZ(120px);
-  -ms-transform     : translateZ(120px);
-  transform         : translateZ(120px);
+  -webkit-transform : translateZ(100px);
+  -moz-transform    : translateZ(100px);
+  -o-transform      : translateZ(100px);
+  -ms-transform     : translateZ(100px);
+  transform         : translateZ(100px);
   background-color  : #2E272F;
   background-image: url(/assets/image1.jpg);
   background-repeat : no-repeat;
 }
 
 #cube1 div:nth-child(2) {
-  -webkit-transform : rotateY(90deg) translateZ(120px);
-  -moz-transform    : rotateY(90deg) translateZ(120px);
-  -o-transform      : rotateY(90deg) translateZ(120px);
-  -ms-transform     : rotateY(90deg) translateZ(120px);
-  transform         : rotateY(90deg) translateZ(120px);
+  -webkit-transform : rotateY(90deg) translateZ(100px);
+  -moz-transform    : rotateY(90deg) translateZ(100px);
+  -o-transform      : rotateY(90deg) translateZ(100px);
+  -ms-transform     : rotateY(90deg) translateZ(100px);
+  transform         : rotateY(90deg) translateZ(100px);
   background-color  : #2D3A4D;
   background-image: url(/assets/image1.jpg);
   background-repeat : no-repeat;
 }
 
 #cube1 div:nth-child(3) {
-  -webkit-transform : rotateY(180deg) translateZ(120px);
-  -moz-transform    : rotateY(180deg) translateZ(120px);
-  -o-transform      : rotateY(180deg) translateZ(120px);
-  -ms-transform     : rotateY(180deg) translateZ(120px);
-  transform         : rotateY(180deg) translateZ(120px);
+  -webkit-transform : rotateY(180deg) translateZ(100px);
+  -moz-transform    : rotateY(180deg) translateZ(100px);
+  -o-transform      : rotateY(180deg) translateZ(100px);
+  -ms-transform     : rotateY(180deg) translateZ(100px);
+  transform         : rotateY(180deg) translateZ(100px);
   background-color  : #2D1C12;
   background-image: url(/assets/image1.jpg);
   background-repeat : no-repeat;
 }
 
 #cube1 div:nth-child(4) {
-  -webkit-transform : rotateY(-90deg) translateZ(120px);
-  -moz-transform    : rotateY(-90deg) translateZ(120px);
-  -o-transform      : rotateY(-90deg) translateZ(120px);
-  -ms-transform     : rotateY(-90deg) translateZ(120px);
-  transform         : rotateY(-90deg) translateZ(120px);
+  -webkit-transform : rotateY(-90deg) translateZ(100px);
+  -moz-transform    : rotateY(-90deg) translateZ(100px);
+  -o-transform      : rotateY(-90deg) translateZ(100px);
+  -ms-transform     : rotateY(-90deg) translateZ(100px);
+  transform         : rotateY(-90deg) translateZ(100px);
   background-color  : #693C1F;
   background-image  : url(/assets/image1.jpg);
   background-repeat : no-repeat;
 }
 
 #cube1 div:nth-child(5) {
-  -webkit-transform : rotateX(-90deg) translateZ(120px) rotate(180deg);
-  -moz-transform    : rotateX(-90deg) translateZ(120px) rotate(180deg);
-  -o-transform      : rotateX(-90deg) translateZ(120px) rotate(180deg);
-  -ms-transform     : rotateX(-90deg) translateZ(120px) rotate(180deg);
-  transform         : rotateX(-90deg) translateZ(120px) rotate(180deg);
+  -webkit-transform : rotateX(-90deg) translateZ(100px) rotate(180deg);
+  -moz-transform    : rotateX(-90deg) translateZ(100px) rotate(180deg);
+  -o-transform      : rotateX(-90deg) translateZ(100px) rotate(180deg);
+  -ms-transform     : rotateX(-90deg) translateZ(100px) rotate(180deg);
+  transform         : rotateX(-90deg) translateZ(100px) rotate(180deg);
   background-color  : #955122;
   background-image  : url(/assets/image1.jpg);
   background-repeat :no-repeat;
 }
 
 #cube1 div:nth-child(6)  {
-  -webkit-transform : rotateX(90deg) translateZ(120px);
-  -moz-transform    : rotateX(90deg) translateZ(120px);
-  -o-transform      : rotateX(90deg) translateZ(120px);
-  -ms-transform     : rotateX(90deg) translateZ(120px);
-  transform         : rotateX(90deg) translateZ(120px);
+  -webkit-transform : rotateX(90deg) translateZ(100px);
+  -moz-transform    : rotateX(90deg) translateZ(100px);
+  -o-transform      : rotateX(90deg) translateZ(100px);
+  -ms-transform     : rotateX(90deg) translateZ(100px);
+  transform         : rotateX(90deg) translateZ(100px);
   background-color  : #E34C26;
   background-image: url(/assets/image1.jpg);
   background-repeat :no-repeat;
@@ -686,8 +685,8 @@ body {
 #cube2 {
   position: relative;
   margin: 0 auto;
-  height: 160px;
-  width: 160px;
+  height: 140px;
+  width: 140px;
 
   -webkit-transition  : -webkit-transform 2s linear;
   -moz-transition     : -moz-transform 2s linear;
@@ -704,77 +703,113 @@ body {
 
 #cube2>div {
   position: absolute;
-  height: 160px;
-  width: 160px;
-  padding: 120px;
+  height: 140px;
+  width: 140px;
+  padding: 100px;
   opacity: 0.9;
   background-position:center center;
 }
 
 #cube2 div:nth-child(1) {
-  -webkit-transform : translateZ(120px);
-  -moz-transform    : translateZ(120px);
-  -o-transform      : translateZ(120px);
-  -ms-transform     : translateZ(120px);
-  transform         : translateZ(120px);
+  -webkit-transform : translateZ(100px);
+  -moz-transform    : translateZ(100px);
+  -o-transform      : translateZ(100px);
+  -ms-transform     : translateZ(100px);
+  transform         : translateZ(100px);
   background-color  : #2E272F;
   background-image: url(/assets/image1.jpg);
   background-repeat : no-repeat;
 }
 
 #cube2 div:nth-child(2) {
-  -webkit-transform : rotateY(90deg) translateZ(120px);
-  -moz-transform    : rotateY(90deg) translateZ(120px);
-  -o-transform      : rotateY(90deg) translateZ(120px);
-  -ms-transform     : rotateY(90deg) translateZ(120px);
-  transform         : rotateY(90deg) translateZ(120px);
+  -webkit-transform : rotateY(90deg) translateZ(100px);
+  -moz-transform    : rotateY(90deg) translateZ(100px);
+  -o-transform      : rotateY(90deg) translateZ(100px);
+  -ms-transform     : rotateY(90deg) translateZ(100px);
+  transform         : rotateY(90deg) translateZ(100px);
   background-color  : #2D3A4D;
   background-image: url(/assets/image1.jpg);
   background-repeat : no-repeat;
 }
 
 #cube2 div:nth-child(3) {
-  -webkit-transform : rotateY(180deg) translateZ(120px);
-  -moz-transform    : rotateY(180deg) translateZ(120px);
-  -o-transform      : rotateY(180deg) translateZ(120px);
-  -ms-transform     : rotateY(180deg) translateZ(120px);
-  transform         : rotateY(180deg) translateZ(120px);
+  -webkit-transform : rotateY(180deg) translateZ(100px);
+  -moz-transform    : rotateY(180deg) translateZ(100px);
+  -o-transform      : rotateY(180deg) translateZ(100px);
+  -ms-transform     : rotateY(180deg) translateZ(100px);
+  transform         : rotateY(180deg) translateZ(100px);
   background-color  : #2D1C12;
   background-image: url(/assets/image1.jpg);
   background-repeat : no-repeat;
 }
 
 #cube2 div:nth-child(4) {
-  -webkit-transform : rotateY(-90deg) translateZ(120px);
-  -moz-transform    : rotateY(-90deg) translateZ(120px);
-  -o-transform      : rotateY(-90deg) translateZ(120px);
-  -ms-transform     : rotateY(-90deg) translateZ(120px);
-  transform         : rotateY(-90deg) translateZ(120px);
+  -webkit-transform : rotateY(-90deg) translateZ(100px);
+  -moz-transform    : rotateY(-90deg) translateZ(100px);
+  -o-transform      : rotateY(-90deg) translateZ(100px);
+  -ms-transform     : rotateY(-90deg) translateZ(100px);
+  transform         : rotateY(-90deg) translateZ(100px);
   background-color  : #693C1F;
   background-image  : url(/assets/image1.jpg);
   background-repeat : no-repeat;
 }
 
 #cube2 div:nth-child(5) {
-  -webkit-transform : rotateX(-90deg) translateZ(120px) rotate(180deg);
-  -moz-transform    : rotateX(-90deg) translateZ(120px) rotate(180deg);
-  -o-transform      : rotateX(-90deg) translateZ(120px) rotate(180deg);
-  -ms-transform     : rotateX(-90deg) translateZ(120px) rotate(180deg);
-  transform         : rotateX(-90deg) translateZ(120px) rotate(180deg);
+  -webkit-transform : rotateX(-90deg) translateZ(100px) rotate(180deg);
+  -moz-transform    : rotateX(-90deg) translateZ(100px) rotate(180deg);
+  -o-transform      : rotateX(-90deg) translateZ(100px) rotate(180deg);
+  -ms-transform     : rotateX(-90deg) translateZ(100px) rotate(180deg);
+  transform         : rotateX(-90deg) translateZ(100px) rotate(180deg);
   background-color  : #955122;
   background-image  : url(/assets/image1.jpg);
   background-repeat :no-repeat;
 }
 
 #cube2 div:nth-child(6)  {
-  -webkit-transform : rotateX(90deg) translateZ(120px);
-  -moz-transform    : rotateX(90deg) translateZ(120px);
-  -o-transform      : rotateX(90deg) translateZ(120px);
-  -ms-transform     : rotateX(90deg) translateZ(120px);
-  transform         : rotateX(90deg) translateZ(120px);
+  -webkit-transform : rotateX(90deg) translateZ(100px);
+  -moz-transform    : rotateX(90deg) translateZ(100px);
+  -o-transform      : rotateX(90deg) translateZ(100px);
+  -ms-transform     : rotateX(90deg) translateZ(100px);
+  transform         : rotateX(90deg) translateZ(100px);
   background-color  : #E34C26;
   background-image: url(/assets/image1.jpg);
   background-repeat :no-repeat;
   text-align:center;  
 }
 
+
+
+
+/* NEW STYLING */
+
+#ven1, #ven2, #ven3 {
+	font-size: 24px;
+	font-weight: bold; 
+	text-align: center;
+}
+
+@media (max-width: 650px) {
+
+.grid figure {
+	position: relative;
+	z-index: 1;
+	display: block;
+	overflow: hidden;
+	margin: -0.135em;
+	width: 33.333%;
+	height: 400px;
+	width: 100%;
+	background: #F9423a;
+	text-align: center;
+	cursor: pointer;
+}
+
+.input-field {
+		height: 50px;
+		max-width: 100%;
+		margin-right: 5px;
+		margin-left: 5px;
+		font-size: 20px;
+	}
+
+}

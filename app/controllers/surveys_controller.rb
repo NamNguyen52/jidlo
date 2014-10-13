@@ -23,6 +23,7 @@ class SurveysController < ApplicationController
 		people = params[:new_survey][:people]
 		name = params[:new_survey][:name]
 		location = params[:new_survey][:location]
+
 		uniqueid = ('a'..'z').to_a.shuffle[0,8].join
 		survey = Survey.new
 		survey.name = name
@@ -41,7 +42,8 @@ class SurveysController < ApplicationController
 		survey.save
 		survey.numbers
 		
-		@link = "http://glacial-atoll-7506.herokuapp.com/survey_link/#{uniqueid}"
+		#@link = "http://glacial-atoll-7506.herokuapp.com/survey_link/#{uniqueid}"
+		@link = "localhost:3000/survey_link/#{uniqueid}"
 
 		account_sid = 'ACc81c5abf7e87ff004ebaa870388e0620' 
 		auth_token = '473558defcc16dc759b89bb55c664be6' 
@@ -250,9 +252,9 @@ class SurveysController < ApplicationController
 					final.venue_one += [x.location.formattedAddress[0] + ", " + x.location.formattedAddress[1]]
 					final.venue_one += [x.price.tier]
 					final.venue_one += [x.rating]
-					final.venue_one += [x.tips.groups[0].items[0].text]
 					final.venue_one += [x.tips.groups[0].items[1].text]
 					final.venue_one += [x.tips.groups[0].items[2].text]
+					final.venue_one += [x.tips.groups[0].items[3].text]
 					final.venue_one += [x.photos.groups[0].items[0].prefix + "300x300" + x.photos.groups[0].items[0].suffix]
 					final.venue_one += [x.photos.groups[0].items[1].prefix + "300x300" + x.photos.groups[0].items[1].suffix]
 					final.venue_one += [x.photos.groups[0].items[2].prefix + "300x300" + x.photos.groups[0].items[2].suffix]
@@ -265,9 +267,9 @@ class SurveysController < ApplicationController
 					final.venue_two += [x.location.formattedAddress[0] + ", " + x.location.formattedAddress[1]]
 					final.venue_two += [x.price.tier]
 					final.venue_two += [x.rating]
-					final.venue_two += [x.tips.groups[0].items[0].text]
 					final.venue_two += [x.tips.groups[0].items[1].text]
 					final.venue_two += [x.tips.groups[0].items[2].text]
+					final.venue_two += [x.tips.groups[0].items[3].text]
 					final.venue_two += [x.photos.groups[0].items[0].prefix + "400x400" + x.photos.groups[0].items[0].suffix]
 					final.venue_two += [x.photos.groups[0].items[1].prefix + "400x400" + x.photos.groups[0].items[1].suffix]
 					final.venue_two += [x.photos.groups[0].items[2].prefix + "400x400" + x.photos.groups[0].items[2].suffix]
@@ -280,9 +282,9 @@ class SurveysController < ApplicationController
 					final.venue_three += [x.location.formattedAddress[0] + ", " + x.location.formattedAddress[1]]
 					final.venue_three += [x.price.tier]
 					final.venue_three += [x.rating]
-					final.venue_three += [x.tips.groups[0].items[0].text]
 					final.venue_three += [x.tips.groups[0].items[1].text]
 					final.venue_three += [x.tips.groups[0].items[2].text]
+					final.venue_three += [x.tips.groups[0].items[3].text]
 					final.venue_three += [x.photos.groups[0].items[0].prefix + "400x400" + x.photos.groups[0].items[0].suffix]
 					final.venue_three += [x.photos.groups[0].items[1].prefix + "400x400" + x.photos.groups[0].items[1].suffix]
 					final.venue_three += [x.photos.groups[0].items[2].prefix + "400x400" + x.photos.groups[0].items[2].suffix]
