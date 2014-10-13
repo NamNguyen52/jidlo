@@ -339,6 +339,11 @@ figure.effect-milo:hover p {
 #party {
 	position: relative;
 	text-align: center;
+	color: black;
+}
+
+#party h4 {
+	color: #FAEBD7;
 }
 
 #submit {
@@ -392,15 +397,50 @@ h5 {
 	text-align: center;
 }
 
-#survey1-container {
+.survey1-container {
 	font-size: 20px;
 	margin-top: 100px;
+	text-align: center;
 }
 
-#survey1-submit {
+.survey-submit {
 	margin-top: 100px;
+	text-align: center;
 }
 
+#survey1-submit-btn {
+	background: transparent;
+	border: 5px solid #FAEBD7;
+	font-size: 20px;
+}
+
+.drop-options {
+	color: black;
+}
+
+.panel-heading {
+	background: none;
+	border: 5px solid #FAEBD7;
+	font-size: 20px;
+}
+
+.panel-body {
+	color: black;
+}
+
+.rest-title {
+	color: #FAEBD7;
+}
+
+#survey2-submit-btn {
+	background: transparent;
+	border: 5px solid #FAEBD7;
+	font-size: 20px;
+}
+
+#survey2-container {
+	margin-top: 20px;
+}
 
 /* STYLING FOR ALL 3 CUBES ON SHOW PAGE */
 

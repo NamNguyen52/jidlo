@@ -50,7 +50,7 @@ class SurveysController < ApplicationController
 		@client = Twilio::REST::Client.new account_sid, auth_token 
 			@client.account.messages.create({
 			:from => '+14244887319', 
-			:to => '3104067401', 
+			:to => '9094771831', 
 			:body => @link,  
 		})
 
