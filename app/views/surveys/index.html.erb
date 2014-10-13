@@ -51,11 +51,11 @@ google.maps.event.addDomListener(window, 'load', initialize, latitude(pos), long
 
 <% if @home %>
 <div class="start">
-<h1>Lets get started</h1>
+  <h1>Lets get started</h1>
 
-<%= form_for(:new_survey, url: new_survey_path) do |q| %>
+  <%= form_for(:new_survey, url: new_survey_path) do |q| %>
 
-<div class="form-container">
+  <div class="form-container">
   
   <div id="survey-location">
   <%= q.text_field :name, :placeholder => "Name", :class => 'input-field' %></br></br>
@@ -69,19 +69,19 @@ google.maps.event.addDomListener(window, 'load', initialize, latitude(pos), long
   options_for_select(%w[1 2 3 4 5 6 7 8 9 10]) %></br></br>
   </div>
  
-  <div id="submit-btn"> 
+
   <%= q.submit "Generate survey link", :id => 'submit' %>
-  </div>
+
 </div>
 <% end %>
 <% end %>
 
-<% if @linkgen %>
+<% if @link %>
 <div class='demo-area'>
   <div id="clip">
-  <button class='my_clip_button' data-clipboard-target='fe_text' id='d_clip_button' title='Click me to copy to clipboard.'>
+    <button class='my_clip_button' data-clipboard-target='fe_text' id='d_clip_button' title='Click me to copy to clipboard.'>
     <b>Copy link to Clipboard...</b>
-  </button></br></br>
+    </button></br></br>
   </div>
   <textarea cols='50' id='fe_text' rows='3'>  
   <% if @link != nil %>
@@ -89,8 +89,9 @@ google.maps.event.addDomListener(window, 'load', initialize, latitude(pos), long
   <% end %>
   </textarea>
 </div>
-</div>
 <% end %>
+
+
 
 <script>
   $(document).ready(function() {

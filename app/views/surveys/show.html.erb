@@ -14,33 +14,39 @@ window.onload = function(){ apiTimer();};
 
 <% if @survey1 %>
 <%= form_for(:response, url: crunch_path, method: :post) do |question| %>
-  <div class="container" id="survey1-container">
+  <div class="container survey1-container">
     <div class="col-md-3"></div>
     <div class="col-md-2">
-      <%= question.label :question1 %></br>
+      <%= question.label "Cuisine" %></br>
+      <div class="drop-options">
       <%= question.select :question1, 
       options_for_select(%w[Thai Chinese Mexican Sushi Burgers Korean Indian FoodTruck FastFood]) %></br>
+      </div>
     </div>
 
     <div class="col-md-2">
-      <%= question.label :question2 %></br>
+      <%= question.label "Distance" %></br>
+      <div class="drop-options">
       <%= question.select :question2, 
       options_for_select(%w[walking short-drive long-drive]) %></br>
+      </div>
     </div>
 
     <div class="col-md-2">
-      <%= question.label :question3 %></br>
+      <%= question.label "Price" %></br>
+      <div class="drop-options">
       <%= question.select :question3, 
       options_for_select(%w[$ $$ $$$ $$$$]) %></br>
+      </div>
     </div>
 
     <div class="col-md-3"></div>
   </div>
 
-  <div class="container" id="survey1-submit">
+  <div class="container survey-submit">
   <div class="col-md-5"></div>
   <div class="col-md-2">
-  <%= question.submit "submit responses!", :id => "survey2" %>
+  <%= question.submit "submit", :id => "survey1-submit-btn" %>
   </div>
   <div class="col-md-5"></div>
   </div>
@@ -50,7 +56,7 @@ window.onload = function(){ apiTimer();};
 
 
 <% if @survey2 %>
-  <h2 class="title">Survey 2</h2>
+  <h2 class="title">Pick a restaurant</h2>
 
 
 <%= form_for(:responsetwo, url: crunchtwo_path, method: :post) do |f| %>
@@ -97,7 +103,7 @@ window.onload = function(){ apiTimer();};
 
     <!-- VENUE ONE DROPDOWN -->
     <div class="col-md-4">
-      <p id="ven1" style="color:black"></p>
+      <p id="ven1" class="rest-title"></p>
       <%= f.check_box :restaurant, {}, "venueone", false %> <br/>
       <div class="panel panel-default">
     <div class="panel-heading">
@@ -122,7 +128,7 @@ window.onload = function(){ apiTimer();};
 
     <!-- VENUE TWO DROPDOWN -->
     <div class="col-md-4">
-      <p id="ven2" style="color:black"></p>
+      <p id="ven2" class="rest-title"></p>
       <%= f.check_box :restaurant, {}, "venuetwo", false %> <br/>
       <div class="panel panel-default">
     <div class="panel-heading">
@@ -148,7 +154,7 @@ window.onload = function(){ apiTimer();};
     <!-- VENUE THREE DROPDOWN -->
 
     <div class="col-md-4">
-      <p id="ven3" style="color:black"></p> 
+      <p id="ven3" class="rest-title"></p> 
       <%= f.check_box :restaurant, {}, "venuethree", false %> <br/>
       <div class="panel panel-default">
     <div class="panel-heading">
@@ -174,9 +180,13 @@ window.onload = function(){ apiTimer();};
   </div> 
 
  </div>
-
-   <%= f.submit "Submit This B!" %>
-   
+   <div class="container survey-submit" id="survey2-container">
+  <div class="col-md-5"></div>
+  <div class="col-md-2">
+  <%= f.submit "Submit", :id => "survey2-submit-btn" %>
+  </div>
+  <div class="col-md-5"></div>
+  </div>  
 <% end %>
 
 <% end %>
