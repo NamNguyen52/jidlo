@@ -404,7 +404,16 @@ class SurveysController < ApplicationController
 					:venue => final_venue.venue_one[0],
 					:venuePrice => final_venue.venue_one[1],
 					:venueRating => final_venue.venue_one[2],
-					:venueAddress => final_venue.venue_one[3]	
+					:venueAddress => final_venue.venue_one[3],
+					:venueTip1 => final_venue.venue_one[4],
+					:venueTip2 => final_venue.venue_one[5],
+					:venueTip3 => final_venue.venue_one[6],
+					:venuePhoto1 => final_venue.venue_one[7],
+					:venuePhoto2 => final_venue.venue_one[8],
+					:venuePhoto3 => final_venue.venue_one[9],
+					:venuePhoto4 => final_venue.venue_one[10],
+					:venuePhoto5 => final_venue.venue_one[11],
+					:venuePhoto6 => final_venue.venue_one[12],	
 				}
 			elsif mode11 == "venuetwo"
 				render json:
@@ -412,7 +421,16 @@ class SurveysController < ApplicationController
 					:venue => final_venue.venue_two[0],
 					:venuePrice => final_venue.venue_two[1],
 					:venueRating => final_venue.venue_two[2],
-					:venueAddress => final_venue.venue_two[3]	
+					:venueAddress => final_venue.venue_two[3],
+					:venueTip1 => final_venue.venue_two[4],
+					:venueTip2 => final_venue.venue_two[5],
+					:venueTip3 => final_venue.venue_two[6],
+					:venuePhoto1 => final_venue.venue_two[7],
+					:venuePhoto2 => final_venue.venue_two[8],
+					:venuePhoto3 => final_venue.venue_two[9],
+					:venuePhoto4 => final_venue.venue_two[10],
+					:venuePhoto5 => final_venue.venue_two[11],
+					:venuePhoto6 => final_venue.venue_two[12],	
 				}
 			elsif mode11 == "venuethree"
 				render json:
@@ -420,7 +438,16 @@ class SurveysController < ApplicationController
 					:venue => final_venue.venue_three[0],
 					:venuePrice => final_venue.venue_three[1],
 					:venueRating => final_venue.venue_three[2],
-					:venueAddress => final_venue.venue_three[3]	
+					:venueAddress => final_venue.venue_three[3],
+					:venueTip1 => final_venue.venue_three[4],
+					:venueTip2 => final_venue.venue_three[5],
+					:venueTip3 => final_venue.venue_three[6],
+					:venuePhoto1 => final_venue.venue_three[7],
+					:venuePhoto2 => final_venue.venue_three[8],
+					:venuePhoto3 => final_venue.venue_three[9],
+					:venuePhoto4 => final_venue.venue_three[10],
+					:venuePhoto5 => final_venue.venue_three[11],
+					:venuePhoto6 => final_venue.venue_three[12],	
 				}
 			end
 

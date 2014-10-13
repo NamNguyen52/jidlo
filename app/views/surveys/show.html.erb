@@ -3,16 +3,16 @@ window.onload = function(){ apiTimer();};
 </script>-->
 
  
-<h1 class="title">Lets get some lunch!</h1>
-<% if @info != nil %>
-  <h5>Survey sent by <%= @info.name %></h5>
-  
-  <h5>Will search in the <%= @info.location %> area</h5>
-<% end %>
-
-
+<!-- SURVEY 1 -->
 
 <% if @survey1 %>
+
+<h1 class="title">Let's get some lunch!</h1>
+<% if @info != nil %>
+<p class="surveyDetails">In <%= @info.location %></p>
+<p class="surveyDetails">Survey sent by: <%= @info.name %></p>
+<% end %>
+
 <%= form_for(:response, url: crunch_path, method: :post) do |question| %>
   <div class="container survey1-container">
     <div class="col-md-3"></div>
@@ -55,13 +55,18 @@ window.onload = function(){ apiTimer();};
 <% end %>
 
 
+<!-- SURVEY 2 -->
+
 <% if @survey2 %>
-  <h2 class="title">Pick a restaurant</h2>
 
+<h1 class="title">Let's get some lunch!</h1>
+<% if @info != nil %>
+<p class="surveyDetails">In <%= @info.location %></p>
+<p class="surveyDetails">Survey sent by: <%= @info.name %></p>
+<% end %>
 
+<h2 class="title">Pick a restaurant</h2>
 <%= form_for(:responsetwo, url: crunchtwo_path, method: :post) do |f| %>
-
-
 <br/><br/><br/><br/><br/><br/>
   
 <div id="container">
@@ -192,15 +197,30 @@ window.onload = function(){ apiTimer();};
 <% end %>
 
 
+<!-- SURVEY 3 -->
 
 <% if @survey3 %>
 
-<h2 class="title">THIS is SURVEY three AKA final RESULT</h2>
- <p id="venueFinal" style="color:purple"></p>  
- <p id="venueFinalPrice" style="color:red"></p>  
- <p id="venueFinalRating" style="color:green"></p>  
- <p id="venueFinalAddress" style="color:blue"></p>  
+<br/><br/>
+<p class="title1">Based on feedback from <%= @info.people %> people,<br/> the Victorious Venue is...</p>
 
+<br/>
+
+<div id="survey3results">
+ <span>Restaurant:</span> <p class="floating" id="venueFinal"></p><br/>  
+ <span>Address:</span> <p class="floating" id="venueFinalPrice"></p><br/>  
+ <span>Price Tier:</span> <p class="floating" id="venueFinalRating"></p>/4<br/>  
+ <span>Rating:</span> <p class="floating" id="venueFinalAddress"></p>  
+
+<img class="scaling" id="p1"/>
+<img class="scaling" id="p2"/>
+<img class="scaling" id="p3"/>
+<br/>
+<img class="scaling" id="p4"/>
+<img class="scaling" id="p5"/>
+<img class="scaling" id="p6"/>
+
+</div>
 
 <% end %>
 
