@@ -42,8 +42,10 @@ class SurveysController < ApplicationController
 		survey.save
 		survey.numbers
 		
-		@link = "www.jidlo.us/survey_link/#{uniqueid}"
+		#@link = "www.jidlo.us/survey_link/#{uniqueid}"
 		#@link = "localhost:3000/survey_link/#{uniqueid}"
+		@link = "glacial-atoll-7506.herokuapp.com/survey_link/#{uniqueid}"
+
 
 		account_sid = 'ACc81c5abf7e87ff004ebaa870388e0620' 
 		auth_token = '473558defcc16dc759b89bb55c664be6' 
