@@ -8,9 +8,9 @@ class Survey < ActiveRecord::Base
   #validates_format_of :name, :with => /^[a-zA-Z]$/ #, :on => :create
   #validates :name, length: { minimum: 10 }
   validates :name, length: { maximum: 25 }
-  validates_presence_of :people, :name, :location, :on => :create
   validates_format_of :location, :with => /^[A-Za-z0-9,. ]+$/, :on => :create, :multiline => true
-
-
+  validates_presence_of :location, :on => :create, :message => "Required field"
+  validates_presence_of :name, :on => :create, :message => "Required field"
+  validates_presence_of :people, :on => :create, :message => "Required field"
 
 end
