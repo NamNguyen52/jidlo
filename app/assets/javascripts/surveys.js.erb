@@ -10,9 +10,9 @@ var apiCall = function() {
 	$.ajax({url: api_url, method: 'GET'}).done(function(data){
 		if(data.venueOne != null) {
 		$("p#ven1").text(data.venueOne)
-		$("p#ven1Price").text(data.venueOnePrice)
-		$("p#ven1Rating").text(data.venueOneRating)
-		$("p#ven1Address").text(data.venueOneAddress)
+		$("p#ven1Price").text('Address: ' + data.venueOnePrice)
+		$("p#ven1Rating").text('Price Tier: ' + data.venueOneRating)
+		$("p#ven1Address").text('Rating: ' + data.venueOneAddress)
 		$("p#ven1Tip1").text(data.venueOneTip1)
 		$("p#ven1Tip2").text(data.venueOneTip2)
 		$("p#ven1Tip3").text(data.venueOneTip3)
@@ -29,9 +29,9 @@ var apiCall = function() {
 		//$("p#ven1Photo1").text(data.venueOnePhoto1)
 
 		$("p#ven2").text(data.venueTwo)
-		$("p#ven2Price").text(data.venueTwoPrice)
-		$("p#ven2Rating").text(data.venueTwoRating)
-		$("p#ven2Address").text(data.venueTwoAddress)
+		$("p#ven2Price").text('Address: ' + data.venueTwoPrice)
+		$("p#ven2Rating").text('Price Tier: ' + data.venueTwoRating)
+		$("p#ven2Address").text('Rating: ' + data.venueTwoAddress)
 		$("p#ven2Tip1").text(data.venueTwoTip1)
 		$("p#ven2Tip2").text(data.venueTwoTip2)
 		$("p#ven2Tip3").text(data.venueTwoTip3)
@@ -44,9 +44,9 @@ var apiCall = function() {
 
 
 		$("p#ven3").text(data.venueThree)
-		$("p#ven3Price").text(data.venueThreePrice)
-		$("p#ven3Rating").text(data.venueThreeRating)
-		$("p#ven3Address").text(data.venueThreeAddress)
+		$("p#ven3Price").text('Address: ' + data.venueThreePrice)
+		$("p#ven3Rating").text('Price Tier: ' + data.venueThreeRating)
+		$("p#ven3Address").text('Rating: ' + data.venueThreeAddress)
 		$("p#ven3Tip1").text(data.venueThreeTip1)
 		$("p#ven3Tip2").text(data.venueThreeTip2)
 		$("p#ven3Tip3").text(data.venueThreeTip3)
@@ -62,7 +62,7 @@ var apiCall = function() {
 		$.ajax({url: api_url_two, method: 'GET'}).done(function(data){
 		if(data.venue != null) {
 		$("p#venueFinal").text(data.venue)
-		$("p#venueFinalPrice").text(data.venuePrice)
+		$("p#venueFinalPrice").text(data.venuePrice + '/4')
 		$("p#venueFinalRating").text(data.venueRating)
 		$("p#venueFinalAddress").text(data.venueAddress)
 		$("#p1").attr('src', data.venuePhoto1)

@@ -15,6 +15,22 @@ img {
 	height: 100%;
 }
 
+#jidloTitle {
+	font-size: 50px !important;
+}
+
+figcaption>h1 {
+	font-size: 60px;
+}
+
+h1>span {
+	font-size: 60px !important;
+}
+
+figcaption>p {
+	font-size: 28px;
+}
+
 .grid figure {
 	position: relative;
 	z-index: 1;
@@ -345,7 +361,7 @@ figure.effect-milo:hover p {
 	color: black;
 }
 
-#party h4 {
+#party h3 {
 	color: #FAEBD7;
 }
 
@@ -395,13 +411,18 @@ figure.effect-milo:hover p {
 .title {
 	text-align: center;
 	font-style: italic;
-	font-size: 45px;
+	font-size: 54px;
 }
 
 .title1 {
 	text-align: center;
 	font-style: italic;
-	font-size: 37px;
+	font-size: 33px;
+}
+
+.title2 {
+	text-align: center;
+	font-size: 40px;
 }
 
 .surveyDetails {
@@ -875,6 +896,16 @@ body {
 		font-size: 20px;
 	}
 
+
+#fe_text {
+	position: relative;
+	background: transparent;
+	font-size: 30px;
+	font-family: 'Abel', sans-serif;
+	text-align: center;
+	margin-right: auto;
+	margin-left: auto;
+	border: none;
 }
 
 #survey3results {
@@ -882,12 +913,44 @@ body {
 	font-size: 25px;
 	text-align: center;
 	font-family: 'Abel', sans-serif;
-	border: 3px solid #FAEBD7;
+	border: 5px solid #FAEBD7;
 	margin-left: auto;
 	margin-right: auto;
 	border-radius: 10px;
 	margin-bottom: 100px;
 	width: 800px;
+	padding-bottom: 50px;
+}
+
+#cube, #cube1, #cube2 {
+	display: block;
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+
+#container {
+	padding-top: 15px;
+	padding-bottom: 150px;
+}
+
+
+#bigContainer {
+	margin-top: 520px;
+}
+
+}
+
+#survey3results {
+	color: #FAEBD7;
+	font-size: 25px;
+	text-align: center;
+	font-family: 'Abel', sans-serif;
+	border: 5px solid #FAEBD7;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 8px;
+	margin-bottom: 50px;
+	width: 600px;
 	padding-bottom: 50px;
 }
 
@@ -902,11 +965,13 @@ body {
 }
 
 span {
-	font-weight: 900;
 	font-size: 35px;
 	text-decoration: underline;
 }
 
+.col-md-2 {
+	font-size: 40px;
+}
 
 .scaling{
   

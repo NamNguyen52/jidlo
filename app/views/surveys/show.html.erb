@@ -65,7 +65,7 @@ window.onload = function(){ apiTimer();};
 <p class="surveyDetails">Survey sent by: <%= @info.name %></p>
 <% end %>
 
-<h2 class="title">Pick a restaurant</h2>
+<h2 class="title2">Pick a restaurant:</h2>
 <%= form_for(:responsetwo, url: crunchtwo_path, method: :post) do |f| %>
 <br/><br/><br/><br/><br/><br/>
   
@@ -108,6 +108,7 @@ window.onload = function(){ apiTimer();};
 
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
+<div id="bigContainer">
 <div class="container">
 
     <!-- VENUE ONE DROPDOWN -->
@@ -132,8 +133,7 @@ window.onload = function(){ apiTimer();};
       </div>
     </div>
   </div>
-    </div>   
-    
+  
 
     <!-- VENUE TWO DROPDOWN -->
     <div class="col-md-4">
@@ -200,6 +200,7 @@ window.onload = function(){ apiTimer();};
 
 <% end %>
 
+<div>
 
 <!-- SURVEY 3 -->
 

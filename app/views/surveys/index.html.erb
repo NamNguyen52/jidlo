@@ -48,7 +48,7 @@ google.maps.event.addDomListener(window, 'load', initialize, latitude(pos), long
 
 <% if @home %>
 <div class="start">
-  <h1>Lets get started</h1>
+  <h1>Let's get started!</h1>
 
   <%= form_for(:new_survey, url: new_survey_path) do |q| %>
 
@@ -61,7 +61,7 @@ google.maps.event.addDomListener(window, 'load', initialize, latitude(pos), long
   </div>
 
   <div id="party">
-  <h4>How many people are in your party?</h4> 
+  <h3>How many people are in your party?</h3> 
   <%= q.select :people,
   options_for_select(%w[1 2 3 4 5 6 7 8 9 10]) %></br></br>
   </div>
@@ -88,7 +88,7 @@ google.maps.event.addDomListener(window, 'load', initialize, latitude(pos), long
 </div>
 <% end %>
 
-
+</div>
 
 <script>
   $(document).ready(function() {
