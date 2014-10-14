@@ -3,10 +3,13 @@ jidlo
 
 Making group dining decisions easier.
 
-This project will utilize different business search API's to contruct a survey. The survey will have three questions: (1)Cuisine, (2) distance, (3) price tier. From there the answers will be collected, analyzed, and sent to the Foursquare API. When the JSON response comes back we will filter the top three retaurant results that best match the survey responses. 
-These three restaurants will be presented back to the same survey group for one final vote. Each of the three restaurants will have a drop down for each restaurant that displays for more information. 
+This project utilizes the Foursqaure API to construct a group survey to find restaurants that closely matches everyone's responses. The entire survey is split into two parts: (1) restaurant preferences and (2) restaurant voting. 
 
-The final restaurant will be presented on the screen. 
+The first survey (restaurant preferences) will ask three questions: (1) cuisine, (2) distance, (3) price tier. From there the answers will be collected and analyzed for trends in the responses. The dominating trend for each question will be set as search parameters for the Foursquare API. The search parameters are then sent to the Foursquare API and JSON data for the top 20 matches will return. Of those 20 responses, we will pull the top three best matches.
+
+The three top matches will then be used to construct the second survey (restaurant voting). The same party will be able for one of the top three restaurants. 
+
+Once all response have been collected the restaurant with the most votes wins and will be displayed on everyone's page.
 
 
 
