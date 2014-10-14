@@ -448,6 +448,7 @@ figure.effect-milo:hover p {
 	background: transparent;
 	border: 5px solid #FAEBD7;
 	font-size: 20px;
+	margin-bottom: 100px;
 }
 
 #survey2-container {
@@ -864,16 +865,18 @@ body {
 
 }
 
-
 #survey3results {
 	color: #FAEBD7;
 	font-size: 25px;
 	text-align: center;
 	font-family: 'Abel', sans-serif;
 	border: 3px solid #FAEBD7;
-	margin-left: 350px;
-	margin-right: 350px;
+	margin-left: auto;
+	margin-right: auto;
 	border-radius: 10px;
+	margin-bottom: 100px;
+	width: 800px;
+	padding-bottom: 50px;
 }
 
 
