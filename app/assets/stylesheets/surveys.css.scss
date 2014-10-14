@@ -19,6 +19,11 @@ img {
 	font-size: 50px !important;
 }
 
+textarea {
+	font-family: 'Abel', sans-serif !important;
+	padding-left: 110px;
+}
+
 figcaption>h1 {
 	font-size: 60px;
 }
@@ -872,7 +877,7 @@ body {
 	text-align: center;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 640px) {
 
 .grid figure {
 	position: relative;
@@ -908,6 +913,11 @@ body {
 	border: none;
 }
 
+textarea {
+	font-size: 30px;
+	
+}
+
 #survey3results {
 	color: #FAEBD7;
 	font-size: 25px;
@@ -918,12 +928,12 @@ body {
 	margin-right: auto;
 	border-radius: 10px;
 	margin-bottom: 100px;
-	width: 800px;
+	width: 600px;
 	padding-bottom: 50px;
 }
 
 #cube, #cube1, #cube2 {
-	display: block;
+	/*display: block;*/
 	padding-top: 40px;
 	padding-bottom: 40px;
 }
@@ -936,6 +946,13 @@ body {
 
 #bigContainer {
 	margin-top: 520px;
+}
+
+#cubeContainer {
+	width: 560px;
+	margin: 0 auto;
+
+	
 }
 
 }
