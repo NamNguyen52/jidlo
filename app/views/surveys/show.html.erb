@@ -1,6 +1,4 @@
-<!--<script type="text/javascript">
-window.onload = function(){ apiTimer();};
-</script>-->
+
 
 <head><meta name="viewport" content="width=device-width"></head>
 
@@ -11,7 +9,8 @@ window.onload = function(){ apiTimer();};
 <h1 class="title">Let's get some lunch!</h1>
 <% if @info != nil %>
 <p class="surveyDetails">In <%= @info.location %></p>
-<p class="surveyDetails">Survey sent by: <%= @info.name %></p>
+<p class="surveyDetails">Survey sent by: <%= @info.name %></br>Please pick one choice for each category below.</p>
+
 <% end %>
 
 <%= form_for(:response, url: crunch_path, method: :post) do |question| %>
@@ -66,7 +65,8 @@ window.onload = function(){ apiTimer();};
 <p class="surveyDetails">Survey sent by: <%= @info.name %></p>
 <% end %>
 
-<h2 class="title2">Pick a restaurant:</h2>
+<h2 class="title2">Once everyone has taken the survey the top 3 restaurants will automatically display below. From there, pick just one restaurant of your choice!</h2>
+
 <%= form_for(:responsetwo, url: crunchtwo_path, method: :post) do |f| %>
 <br/><br/><br/><br/><br/><br/>
 
@@ -207,7 +207,7 @@ window.onload = function(){ apiTimer();};
 
 
 
-<!-- SURVEY 3 -->
+<!-- Final Result -->
 
 <% if @survey3 %>
 
