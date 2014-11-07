@@ -43,7 +43,7 @@ class SurveysController < ApplicationController
 		survey.numbers
 		
 		#@link = "www.jidlo.us/survey_link/#{uniqueid}"
-		#@link = "localhost:3000/survey_link/#{uniqueid}"
+		# @link = "localhost:3000/survey_link/#{uniqueid}"
 		@link = "glacial-atoll-7506.herokuapp.com/survey_link/#{uniqueid}"
 
 
@@ -168,10 +168,10 @@ class SurveysController < ApplicationController
 		case mode2
 
 		when "walking"
-  			radius = 2000
+  			radius = 8000
   			api_params_arr << radius
 		when "short-drive"
-			radius = 8000
+			radius = 10000
 			api_params_arr << radius
 		when "long-drive"
 			radius = 20000
@@ -214,8 +214,9 @@ class SurveysController < ApplicationController
 
 	def api_call1(api_params_arr, location)
 
-		client = Foursquare2::Client.new(:client_id => 'XFYKY1CI1GK1MHXLUG43THGBTYDFUUBFPXVLGNGD441C3HWO', :client_secret => '2J4FTZRUCVVTVM4OYMO2R15UJLPUQ4XOU4GJS1BGIYOK1YWV', :api_version => '20140928')
+		client = Foursquare2::Client.new(:client_id => 'IPL2WQAYGQNSAPLZ1R5E2BQBROUJWI03HN1ENN0POFRBFGT4', :client_secret => 'ISH4RDJU5PP4AJ01DONNLBE3AMA43IOMVDWE3IZBFT2N2A4R', :api_version => '20140928')
 		search = client.search_venues(:near => location, :radius => api_params_arr[1], :limit => 20, :categoryId => api_params_arr[0])
+
 		arrayiterate = (0..10).to_a
 		venueids = []
 
@@ -230,7 +231,7 @@ class SurveysController < ApplicationController
 
 	def api_call2(arr,api_params_arr)
 
-		client = Foursquare2::Client.new(:client_id => 'XFYKY1CI1GK1MHXLUG43THGBTYDFUUBFPXVLGNGD441C3HWO', :client_secret => '2J4FTZRUCVVTVM4OYMO2R15UJLPUQ4XOU4GJS1BGIYOK1YWV', :api_version => '20140928')
+		client = Foursquare2::Client.new(:client_id => 'IPL2WQAYGQNSAPLZ1R5E2BQBROUJWI03HN1ENN0POFRBFGT4', :client_secret => 'ISH4RDJU5PP4AJ01DONNLBE3AMA43IOMVDWE3IZBFT2N2A4R', :api_version => '20140928')
 		search_venues = []
 
 		arr.each do |x|
@@ -242,7 +243,7 @@ class SurveysController < ApplicationController
 
 	def filter(arr,api_params_arr)
 
-		client = Foursquare2::Client.new(:client_id => 'XFYKY1CI1GK1MHXLUG43THGBTYDFUUBFPXVLGNGD441C3HWO', :client_secret => '2J4FTZRUCVVTVM4OYMO2R15UJLPUQ4XOU4GJS1BGIYOK1YWV', :api_version => '20140928')
+		client = Foursquare2::Client.new(:client_id => 'IPL2WQAYGQNSAPLZ1R5E2BQBROUJWI03HN1ENN0POFRBFGT4', :client_secret => 'ISH4RDJU5PP4AJ01DONNLBE3AMA43IOMVDWE3IZBFT2N2A4R', :api_version => '20140928')
 
 		final = Survey.find_by(uniqueid: params[:uniqueid])
 
