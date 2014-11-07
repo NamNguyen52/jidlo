@@ -42,7 +42,7 @@ class SurveysController < ApplicationController
 		survey.save
 		survey.numbers
 		
-		#@link = "http://glacial-atoll-7506.herokuapp.com/survey_link/#{uniqueid}"
+		# @link = "http://glacial-atoll-7506.herokuapp.com/survey_link/#{uniqueid}"
 		@link = "localhost:3000/survey_link/#{uniqueid}"
 
 		account_sid = 'ACc81c5abf7e87ff004ebaa870388e0620' 
