@@ -61,7 +61,20 @@
 
 <% if @link %>
 
-  <a href="<%= @link %>" target="_blank">Click</a>
+  <div class="survey-link-instructions-container">
+    <div class="survey-instruction-container">
+      <div class="survey-instruction-number"></div>
+      <p>Copy this link:</br><%= @link %></p>
+    </div>
+    <div class="survey-instruction-container">
+      <div class="survey-instruction-number"></div>
+      <p>Open that link in a new tab and take the survey.</p>
+    </div>
+    <div class="survey-instruction-container">
+      <div class="survey-instruction-number"></div>
+      <p>Send the same link to the other people in your party so they can take the survey as well.</p>
+    </div>
+  </div>
 
 <% end %>
 
