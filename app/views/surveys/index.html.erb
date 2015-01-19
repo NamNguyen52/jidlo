@@ -47,7 +47,10 @@
   </div>
 
   <div id="party">
-  <h3>How many people are in your party?</h3> 
+  <h3>How many people are in your party?</h3>
+  <div>
+    <p id="demo-message">**For demo purposes just pick 1</p>
+  </div> 
   <%= q.select :people,
   options_for_select(%w[1 2 3 4 5 6 7 8 9 10]) %></br></br>
   </div>
@@ -63,19 +66,28 @@
 
   <div class="survey-link-instructions-container">
     <div class="survey-instruction-container">
-      <div class="survey-instruction-number"></div>
-      <p>Copy this link:</br><%= @link %></p>
+      <div class="survey-instruction-number">1</div>
+      <div class="survey-instruction-text">
+        <p>Copy this link: </br><%= @link %></p>
+      </div>
     </div>
     <div class="survey-instruction-container">
-      <div class="survey-instruction-number"></div>
-      <p>Open that link in a new tab and take the survey.</p>
+      <div class="survey-instruction-number">2</div>
+      <div class="survey-instruction-text">
+        <p>Then open that link in a new tab and take the survey.</p>
+      </div>
     </div>
     <div class="survey-instruction-container">
-      <div class="survey-instruction-number"></div>
-      <p>Send the same link to the other people in your party so they can take the survey as well.</p>
+      <div class="survey-instruction-number">3</div>
+      <div class="survey-instruction-text">
+        <p>Finally, send the same link to the other people in your party so they can take the survey as well.</p>
+      </div>
     </div>
   </div>
 
+  <div class="link-to-home">
+    <%= link_to "Home", root_path, :id => 'link-to-home-id' %>
+  </div>
 <% end %>
 
 </div>

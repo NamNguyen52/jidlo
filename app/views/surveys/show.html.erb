@@ -6,12 +6,15 @@
 
 <% if @survey1 %>
 
-<h1 class="title">Let's get some lunch!</h1>
-<% if @info != nil %>
-<p class="surveyDetails">In <%= @info.location %></p>
-<p class="surveyDetails">Survey sent by: <%= @info.name %></br>Please pick one choice for each category below.</p>
+<div class="survey-2-header-container">
+  <h1 class="title">Let's get some lunch!</h1>
+  <% if @info != nil %>
+  <p class="surveyDetails">In <%= @info.location %></p>
+  <p class="surveyDetails">Survey sent by: <%= @info.name %></p>
+  <% end %>
 
-<% end %>
+  <h2 class="title2">Select one option from each category below.</h2>
+</div>
 
 <%= form_for(:response, url: crunch_path, method: :post) do |question| %>
   <div class="container survey1-container">
@@ -54,7 +57,6 @@
 <% end %>
 <% end %>
 
-
 <!-- SURVEY 2 -->
 
 <% if @survey2 %>
@@ -72,42 +74,42 @@
 <%= form_for(:responsetwo, url: crunchtwo_path, method: :post) do |f| %>
 <br/><br/><br/><br/><br/><br/>
 
-<div id="cubeContainer">  
+<div id="cube-container">  
 
-<div id="container">
-  <div id="cube2" class="animate">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
+  <div id="container">
+    <div id="cube2" class="animate">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
   </div>
-</div>
 
 
-<div id="container">
-  <div id="cube1" class="animate">
-    <div class="jokes"></div>
-    <div class="jokes"></div>
-    <div class="jokes"></div>
-    <div class="jokes"></div>
-    <div class="jokes"></div>
-    <div class="jokes"></div>
+  <div id="container">
+    <div id="cube1" class="animate">
+      <div class="jokes"></div>
+      <div class="jokes"></div>
+      <div class="jokes"></div>
+      <div class="jokes"></div>
+      <div class="jokes"></div>
+      <div class="jokes"></div>
+    </div>
   </div>
-</div>
 
 
-<div id="container">
-  <div id="cube" class="animate">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
+  <div id="container">
+    <div id="cube" class="animate">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
   </div>
-</div>
 
 </div>
 
@@ -198,7 +200,7 @@
  </div>
    <div class="container survey-submit" id="survey2-container">
   <div class="col-md-5"></div>
-  <div class="col-md-2">
+  <div class="col-md-2" id="survey2-submit-id">
   <%= f.submit "Submit", :id => "survey2-submit-btn" %>
   </div>
   <div class="col-md-5"></div>
@@ -232,6 +234,10 @@
 <img class="scaling" id="p5"/>
 <img class="scaling" id="p6"/>
 
+</div>
+
+<div class="link-to-home">
+    <%= link_to "Home", root_path, :id => 'link-to-home-id' %>
 </div>
 
 <% end %>

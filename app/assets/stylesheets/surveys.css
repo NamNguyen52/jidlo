@@ -36,6 +36,10 @@ figcaption>p {
 	font-size: 18px;
 }
 
+#demo-message {
+	color: #FAEBD7;
+}
+
 .grid figure {
 	position: relative;
 	z-index: 1;
@@ -494,10 +498,71 @@ figure.effect-milo:hover p {
 	border: 5px solid #FAEBD7;
 	font-size: 20px;
 	margin-bottom: 100px;
+	margin-top: 100px;
+	position: absolute;
+	text-align: center;
+	z-index: -100;
 }
 
 #survey2-container {
 	margin-top: 20px;
+}
+
+/* styling for survey instructions */
+
+.survey-link-instructions-container {
+	height: 600px;
+	width: 550px;
+	position: relative;
+	margin: 0 auto 0 auto;
+	padding-top: 20px;
+}
+
+.survey-instruction-container {
+	height: 175px;
+	width: 540px;
+	border: 5px solid #FAEBD7;
+	position: relative;
+	margin: 0 auto 10px auto;
+}
+
+.survey-instruction-number {
+	height: 165px;
+	width: 175px;
+	border-right: 5px solid #FAEBD7;
+	clear: left;
+	background-color: #FAEBD7;
+	color: black;
+	font-size: 100px;
+	font-weight: bold;
+	padding-left: 60px;
+	padding-top: 10px;
+	float: left;
+}
+
+.survey-instruction-text {
+	height: 165px;
+	width: 320px;
+	margin-left: 195px;
+	text-align: center;
+	font-size: 18px;
+	line-height: 20px; 
+	padding-top: 50px;
+}
+
+.link-to-home {
+	height: 50px;
+	width: 100px;
+	border: 5px solid #FAEBD7;
+	position: relative;
+	margin: 0 auto 10px auto;
+	text-align: center;
+	font-size: 20px;
+	padding-top: 4px;
+}
+
+#link-to-home-id {
+	color: #FAEBD7;
 }
 
 /* STYLING FOR ALL 3 CUBES ON SHOW PAGE */
@@ -844,6 +909,47 @@ body {
   text-align:center;  
 }
 
+#cube-container {
+	width: 1200px;
+	height: 350px;
+	position: absolute;
+	margin-left: 150px;
+}
+
+#bigContainer {
+	height: 150px;
+	width: 1200px;
+	position: absolute;
+	margin-left: 50px;
+	margin-top: -50px;
+}
+
+#survey2-submit-id {
+	position: relative;
+	margin-left: 350px;
+	margin-top: 10px;
+}
+
+#survey3results {
+	color: #FAEBD7;
+	font-size: 25px;
+	text-align: center;
+	font-family: 'Abel', sans-serif;
+	border: 5px solid #FAEBD7;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 50px;
+	width: 600px;
+	padding-bottom: 50px;
+}
+
+#p1, #p2, #p3, #p4, #p5, #p6 {
+	height: 160px;
+	width: 160px;
+	display: inline-block;
+	border: 5px solid #FAEBD7;
+	margin: 7px;
+}
 
 /* NEW STYLING */
 
@@ -894,20 +1000,6 @@ textarea {
 	
 }
 
-#survey3results {
-	color: #FAEBD7;
-	font-size: 25px;
-	text-align: center;
-	font-family: 'Abel', sans-serif;
-	border: 5px solid #FAEBD7;
-	margin-left: auto;
-	margin-right: auto;
-	border-radius: 10px;
-	margin-bottom: 100px;
-	width: 600px;
-	padding-bottom: 50px;
-}
-
 #cube, #cube1, #cube2 {
 	/*display: block;*/
 	padding-top: 40px;
@@ -924,11 +1016,10 @@ textarea {
 	margin-top: 520px;
 }
 
-#cubeContainer {
+#cube-container {
 	width: 680px;
-	
-}
-
+	height: 500px;
+	border: 1px solid white;
 }
 
 #survey3results {
@@ -963,27 +1054,3 @@ span {
 .col-md-2 {
 	font-size: 40px;
 }
-
-.scaling{
-  
-    -webkit-animation-name: scalex;
-    -webkit-animation-duration:4s;
-    -webkit-animation-iteration-count:infinite;
-    -webkit-animation-timing-function:ease-in-out;
-    -moz-animation-name: scale;
-    -moz-animation-duration:4s;
-    -moz-animation-iteration-count:infinite;
-    -moz-animation-timing-function:ease-in-out;
-}
-    
-    @-webkit-keyframes scalex{
-        from {-webkit-transform: scale(0.9);}
-        75% {-webkit-transform: scale(1.0);}
-        to {-webkit-transform: scale(0.9);}    
-    }
-        
-    @-moz-keyframes scale{
-        from {-moz-transform: scale(0.9);}
-        75% {-moz-transform: scale(1.0);}
-        to {-moz-transform: scale(0.9);}    
-    }
